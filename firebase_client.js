@@ -17,12 +17,7 @@ function getProductsTest() {
 
 function initFirebase() {
     const config = {
-        apiKey: "AIzaSyDnPZyNb6IlpqRv5HqNqufj3Osc1pHlQMg",
-        authDomain: "kappdb-6fb1e.firebaseapp.com",
-        databaseURL: "https://kappdb-6fb1e.firebaseio.com",
         projectId: "kappdb-6fb1e",
-        storageBucket: "kappdb-6fb1e.appspot.com",
-        messagingSenderId: "577134652655"
     };
 
     firebase.initializeApp(config);
