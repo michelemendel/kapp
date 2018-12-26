@@ -5,17 +5,6 @@
 Firebase Kosher App API
 """
 
-# * Database: [kappdb](https://console.firebase.google.com/project/kappdb-6fb1e/)
-# * Documentation: https://firebase.google.com/docs/?authuser=0
-# https://firebase.google.com/docs/firestore/
-# * Get started with Cloud Firestore: https://firebase.google.com/docs/firestore/quickstart
-# * Google credentials: https://cloud.google.com/docs/authentication/getting-started
-
-
-project_public_facing_name = 'project-577134652655'
-web_client_id = '577134652655-ffgruq15k5amjogc1j1lrrm17v28lvns.apps.googleusercontent.com'
-web_client_secret = 'w3ziSiE7CIjKSaLykuuu48-M'
-
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -23,7 +12,7 @@ import pandas as pd
 
 # Use a service account
 cred = credentials.Certificate(
-    'kappdb-6fb1e-firebase-adminsdk-f0djw-a410d6f533.json')
+    '../kappdb-6fb1e-firebase-adminsdk-f0djw-705b7fe26e.json')
 
 # Note: Only call this once
 firebase_admin.initialize_app(cred)
@@ -112,6 +101,17 @@ def get_doc(doc_ref):
     """Returns: A document as a dict."""
 
     return doc_ref.get().to_dict()
+
+
+def get_docs():
+    """
+    Returns: All of them documents.
+    """
+    docs = products_ref().get()  # This is a firestore.document.DocumentSnapshot
+    products = []
+    for doc in docs:
+        products.append(doc.to_dict())
+    return products
 
 
 def update(doc_ref, obj):

@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Firestore Client</title>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-functions.js"></script> -->
+
+    <script src="firebase_client.js"></script>
+</head>
+
+<body>
+
+    <div id="searchBar"></div>
+
+    <div id="products"></div>
+
+    <div id="product"></div>
+
+    <script>
+        const fbDb = initFirebase();
+        const db = database();
+
+        const productsRootNode = document.getElementById("products");
+        const searchBarRootNode = document.getElementById("searchBar");
+
+        db.initDb()
+            .then((ready) => {
+                console.log("READY?", ready);
+                // console.log(db.getProducts());
+                displaySearchBar(searchBarRootNode, productsRootNode, db);
+                displayProducts(productsRootNode, db.getProducts());
+            });
+
+        // displayProducts(productsRootNode, getProductsTest());
+        // const productRootNode = document.getElementById("product");
+        // displayProduct(productRootNode, getProductsTest()[0]);
+    </script>
+</body>
+
+</html>
