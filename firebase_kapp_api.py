@@ -1,6 +1,3 @@
-
-# coding: utf-8
-
 """
 Firebase Kosher App API
 """
@@ -52,6 +49,20 @@ def exists(doc_ref):
     return doc_ref.get().exists
 
 
+def is_unique(obj, unique_names):
+    """
+    Checks is a unique name (producer + product) doesn't already exists.
+    """
+    return obj['producer'].lower() + "_" + obj['product'].lower().replace('/', ' ') not in unique_names
+
+
+def get_unique_name(obj):
+    """
+    Creates a unique name (hopefully) of producer and product.
+    """
+    return obj['producer'].lower() + "_" + obj['product'].lower().replace('/', ' ')
+
+
 def nofProducts():
     return len(list(products_ref().get()))
 
@@ -62,15 +73,16 @@ def create(obj):
     Returns: doc_ref
     """
 
-    product_names = get_product_names()
-    doc_ref = products_ref().document()
+    doc_ref = products_ref().document(get_unique_name(obj))
 
-    if obj['product'].lower() not in product_names:
+    if is_unique(obj, get_unique_names()):
         obj['ts_created'] = firestore.SERVER_TIMESTAMP
+        obj['product'] = obj['product'].replace('/', ' ')
+
         doc_ref.set(obj)
-        print('+Product ({}) was created'.format(doc_ref.id))
+        print('+ {}'.format(doc_ref.id))
     else:
-        print('Product', obj['product'], 'already exists')
+        print("x", get_unique_name(obj), 'already exists')
 
     return doc_ref
 
@@ -80,26 +92,27 @@ def batch_create(df):
     Creates a set of products.
     """
     col_names = df.columns.tolist()
-    product_names = get_product_names()
+    unique_names = get_unique_names()
 
     for idx, p in df.iterrows():
         obj = {}
         for col_name in col_names:
             obj[col_name] = p[col_name]
 
-        if p['product'].lower() not in product_names:
-            doc_ref = products_ref().document()
+        if is_unique(obj, unique_names):
             obj['ts_created'] = firestore.SERVER_TIMESTAMP
+            obj['product'] = obj['product'].replace('/', ' ')
+
+            doc_ref = products_ref().document(get_unique_name(obj))
             doc_ref.set(obj)
             print(
-                '+Product {} ({}) was created'.format(p['product'], doc_ref.id))
+                '+ {}'.format(doc_ref.id))
         else:
-            print(obj['product'], 'already exists')
+            print("x", get_unique_name(obj), 'already exists')
 
 
 def get_doc(doc_ref):
     """Returns: A document as a dict."""
-
     return doc_ref.get().to_dict()
 
 
@@ -121,16 +134,16 @@ def update(doc_ref, obj):
     """
 
     if not exists(doc_ref):
-        err = 'Product ({}) does not exists'.format(doc_ref.id)
+        err = '{} does not exists'.format(doc_ref.id)
         print(err)
     elif(isDeleted(doc_ref)):
-        err = 'Product ({}) is deleted and can not be updated'.format(
+        err = '{} is deleted and can not be updated'.format(
             doc_ref.id)
         print(err)
     else:
         obj['ts_modified'] = firestore.SERVER_TIMESTAMP
         doc_ref.update(obj)
-        print('Product ({}) was modified'.format(doc_ref.id))
+        print('{} was modified'.format(doc_ref.id))
 
     return doc_ref
 
@@ -162,8 +175,8 @@ def find_duplicates():
     Finds duplicates in the Firestore database by product.
     Returns: A tuple of (id, product name)
     """
-    prod_names = pd.Series(get_product_names(False))
-    dups = prod_names[prod_names.duplicated()]
+    unique_names = pd.Series(get_unique_names(False))
+    dups = unique_names[unique_names.duplicated()]
     prod_ref = products_ref()
 
     dup_res = []
@@ -182,19 +195,19 @@ def erase_duplicates():
         print('Duplicate product {} ({}) was erased.'.format(d[1], d[0]))
 
 
-def get_product_names(to_lower=True):
+def get_unique_names(to_lower=True):
     """
     Get all product names.
     Returns: list 
     """
     docs = products_ref().get()
-    product_names = [
-        doc.to_dict()['product']
+    unique_names = [
+        doc.to_dict()['producer'] + "_" + doc.to_dict()['product']
         for doc in docs
-        if 'product' in doc.to_dict()
+        if 'producer' in doc.to_dict() and 'product' in doc.to_dict()
     ]
 
-    return [pn.lower() for pn in product_names] if to_lower else product_names
+    return [pn.lower() for pn in unique_names] if to_lower else unique_names
 
 
 def list_products(verbose=True):

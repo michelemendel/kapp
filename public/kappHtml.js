@@ -1,76 +1,4 @@
-const display_cols = ["category", "sub_category", "producer", "product", "kosher_type", "kosher_stamp", "comment"];
-const search_cols = ["category", "sub_category", "producer", "product", "kosher_type", "kosher_stamp", "comment"];
-
-function getProductsTest() {
-    return [{
-            product: "bread",
-            kosher_type: "M*",
-            producer: "Toro",
-        },
-        {
-            product: "tortilla",
-            kosher_type: "P",
-            producer: "The Mexican"
-        },
-    ];
-}
-
-function initFirebase() {
-    const config = {
-        projectId: "kappdb-6fb1e",
-    };
-
-    firebase.initializeApp(config);
-
-    // Initialize Cloud Firestore through Firebase
-    const db = firebase.firestore();
-
-    // Disable deprecated features
-    db.settings({
-        timestampsInSnapshots: true
-    });
-
-    return db;
-}
-
-function database() {
-    const products = [];
-
-    const initDb = () => {
-        return fbDb.collection("products").get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    products.push(doc.data())
-                });
-            })
-            .then(() => {
-                return true;
-            });
-    }
-
-    const getProducts = () => {
-        return products;
-    }
-
-    const search = (str) => {
-        const re = RegExp(".*" + str.toLowerCase() + ".*");
-        return products.filter((p) => {
-            for (col of search_cols) {
-                if (re.test(p[col].toLowerCase())) {
-                    return true;
-                }
-            }
-            return false;
-        });
-    }
-
-    return {
-        initDb,
-        getProducts,
-        search,
-    }
-
-}
+const display_cols = ["product", "kosher_type", "kosher_stamp", "category", "sub_category", "producer", "product_type", "comment"];
 
 function displayProduct(productRootNode, product) {
     productRootNode.appendChild(
@@ -81,8 +9,8 @@ function displayProduct(productRootNode, product) {
 function displayProducts(productsRootNode, products) {
     createProductNodes(products).forEach((productNode) => {
         productsRootNode.appendChild(productNode);
-        horLineNode = document.createElement("hr");
-        productsRootNode.appendChild(horLineNode);
+        // horLineNode = document.createElement("hr");
+        // productsRootNode.appendChild(horLineNode);
     });
 }
 
@@ -103,10 +31,19 @@ function createProductNode(product) {
 
 function createProductItemNodes(product) {
     return display_cols.map((key) => {
-        contentNode = createContentNode(product[key])
         productItemNode = document.createElement("div");
         productItemNode.classList.add("productItem");
-        productItemNode.appendChild(createContentNode(key + ": " + product[key]));
+
+        contentKeyNode = document.createElement("div");
+        contentKeyNode.classList.add("contentKey");
+        contentKeyNode.appendChild(createContentNode(key))
+
+        contentValueNode = document.createElement("div");
+        contentValueNode.classList.add("contentValue");
+        contentValueNode.appendChild(createContentNode(product[key]))
+
+        productItemNode.appendChild(contentKeyNode);
+        productItemNode.appendChild(contentValueNode);
         return productItemNode;
     });
 }
