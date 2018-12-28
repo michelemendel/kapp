@@ -40,7 +40,7 @@
 <body>
     <div id="message">
         <h2>Norwegian Kosher List</h2>
-        <p id="load">To search, write a text and press enter</p>
+        <p class="info">To search, write a text and press enter</p>
     </div>
 
     <div id="searchBar"></div>
@@ -114,7 +114,7 @@
                     console.log("READY?", ready);
                     // console.log(db.getProducts());
                     displaySearchBar(searchBarRootNode, productsRootNode, db);
-                    displayProducts(productsRootNode, db.getProducts());
+                    {{/* displayProducts(productsRootNode, db.getProducts()); */}}
                 });
         }
     </script>

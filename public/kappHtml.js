@@ -9,6 +9,45 @@ const display_cols = {
     "comment": "Comment",
 };
 
+/**
+ * Product List
+ */
+
+function displaySearchBar(searchBarRootNode, productsRootNode, db) {
+    searchBarRootNode.innerHTML = `
+        <div class="searchBar">
+            <input id="searchInput" type="text" placeholder="Search...">
+            <span id="product_count" class="info"></span>
+        </div>
+    `
+    displayCount = (products) => {
+        document.querySelector("#product_count").innerHTML = products.length;
+        return products;
+    };
+
+    displayProducts(
+        productsRootNode,
+        displayCount(db.getProducts())
+    );
+
+    // Execute a function when the user releases a key on the keyboard
+    const input = document.getElementById("searchInput");
+    input.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            removeProducts(productsRootNode);
+            displayProducts(
+                productsRootNode,
+                displayCount(db.search(input.value))
+            );
+        }
+    });
+}
+
+/**
+ * Product List
+ */
+
 function displayProduct(productRootNode, product) {
     productRootNode.appendChild(
         createProductNode(product)
@@ -21,6 +60,7 @@ function displayProducts(productsRootNode, products) {
         // horLineNode = document.createElement("hr");
         // productsRootNode.appendChild(horLineNode);
     });
+    return products;
 }
 
 function createProductNodes(products) {
@@ -66,24 +106,4 @@ function removeProducts(productsRootNode) {
     while (productsRootNode.firstChild) {
         productsRootNode.removeChild(productsRootNode.firstChild);
     }
-}
-
-function displaySearchBar(searchBarRootNode, productsRootNode, db) {
-    searchBarRootNode.innerHTML = `
-        <div class="searchBar">
-            <input id="searchInput" type="text" placeholder="Search..">
-        </div>
-    `
-    const input = document.getElementById("searchInput");
-
-    // Execute a function when the user releases a key on the keyboard
-    input.addEventListener("keyup", function (event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            const res = db.search(input.value);
-            console.log("Search result", res);
-            removeProducts(productsRootNode);
-            displayProducts(productsRootNode, res);
-        }
-    });
 }
