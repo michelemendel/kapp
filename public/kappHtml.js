@@ -1,4 +1,13 @@
-const display_cols = ["product", "kosher_type", "kosher_stamp", "category", "sub_category", "producer", "product_type", "comment"];
+const display_cols = {
+    "product": "Product",
+    "kosher_type": "Kosher Type",
+    "kosher_stamp": "Kosher Stamp",
+    "category": "Category",
+    "sub_category": "Sub Category",
+    "producer": "Producer",
+    "product_type": "Product Type",
+    "comment": "Comment",
+};
 
 function displayProduct(productRootNode, product) {
     productRootNode.appendChild(
@@ -30,13 +39,13 @@ function createProductNode(product) {
 }
 
 function createProductItemNodes(product) {
-    return display_cols.map((key) => {
+    return Object.keys(display_cols).map((key) => {
         productItemNode = document.createElement("div");
         productItemNode.classList.add("productItem");
 
         contentKeyNode = document.createElement("div");
         contentKeyNode.classList.add("contentKey");
-        contentKeyNode.appendChild(createContentNode(key))
+        contentKeyNode.appendChild(createContentNode(display_cols[key]))
 
         contentValueNode = document.createElement("div");
         contentValueNode.classList.add("contentValue");
