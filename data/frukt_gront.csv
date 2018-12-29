@@ -1,3 +1,29 @@
 category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,comment
 
-"frukt & grønt","-","-","-","-","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","info","-","Alle frosne, ubehandlete grønnsaker er kosher","-","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Brokkoli & Blomkål","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Rotgrønnsaker","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Jegerblanding","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Perfekt til fisk","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Perfekt til kjøtt","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Perfekt til lapskaus","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Wok Classic","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Wok Frisk","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Wok Spicy","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Wok Mild","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Erter","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Aspargesbønner","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Ferskdampet økologisk","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Små Fine Brokkolibuketter","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Rosenkål","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Poteto Dippers","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Sprø Potetstaver","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Criss Cross","p","-","-"
+"frukt & grønt","Frosne grønnsaker og potet","Findus","-","Chippy Chips","p","-","-"
+
+"frukt & grønt","Hermetiske grønsaker","info","-","Alle rene grønnsaker lagt i saltvann uten eddik er kosher.","p","-","-"
+"frukt & grønt","Hermetiske grønsaker","info","-","Alle typer tomatpuré er kosher.","p","-","-"
+
+"frukt & grønt","Hermetisk frukt","info","-","All hermetisk frukt i sin egen lake er tillatt, med mindre den inneholder druesaft.","p","-","-"
+
+
