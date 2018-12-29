@@ -101,8 +101,8 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "bakevarer","kaker og boller","Bakehuset","kaker","Cappuccinokake","ik","-","-"
 "bakevarer","kaker og boller","Bakehuset","kaker","Marsipanvanilje og Bløtkake Syltetøy","ik","-","-"
 
-"bakevarer","kaker og boller","Bakehuset","wienervarer","Alle wienervarer","???","-","Kosher, saknar info om kosher-type."
-"bakevarer","kaker og boller","Bakehuset","wienervarer","Wienerstang med makron","???","-","Kosher, men saknar info om kosher-type."
+"bakevarer","kaker og boller","Bakehuset","wienervarer","Alle wienervarer","-","-","Kosher, saknar info om kosher-type."
+"bakevarer","kaker og boller","Bakehuset","wienervarer","Wienerstang med makron","-","-","Kosher, men saknar info om kosher-type."
 
 "bakevarer","kaker og boller","Delicato","store kaker","Fransk sjokoladekake","m","-","-"
 "bakevarer","kaker og boller","Delicato","store kaker","Mandelkake","m","-","-"
@@ -271,7 +271,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "bakevarer","knekkebrød og flatbrød","Wasa","-","Rugsprø Original","p","-","-"
 "bakevarer","knekkebrød og flatbrød","Wasa","-","Rugsprø Havre","p","-","-"
 
-"bakevarer","knekkebrød og flatbrød","div produsenter","-","Riskaker","???","-","Alle typer riskaker, fra alle produsenter, er kosher, bortsett fra dem som inneholder ost."
+"bakevarer","knekkebrød og flatbrød","div produsenter","-","Riskaker","-","-","Alle typer riskaker, fra alle produsenter, er kosher, bortsett fra dem som inneholder ost."
 
 "bakevarer","Lomper og Lefser","Aulie Lompebakeri","-","Julelefser","p","-","-"
 "bakevarer","Lomper og Lefser","Aulie Lompebakeri","-","Lefserull","p","-","-"
