@@ -1,4 +1,4 @@
-const search_cols = ["category", "sub_category", "producer", "product_type", "product", "kosher_type", "kosher_stamp", "comment"];
+const search_cols = ["text", "category", "sub_category", "producer", "product_type", "product", "kosher_type", "kosher_stamp", "comment"];
 
 function getProductsTest() {
     return [{
@@ -41,12 +41,14 @@ function database() {
     }
 
     const search = (str) => {
-        const re = RegExp(str + ".*", "ui");
+        const re = RegExp(str + ".*", "im");
         return products.filter((p) => {
 
             for (col of search_cols) {
                 // Without the normalize method, search for the letter å doesn't work.
-                if (re.test(p[col]) || re.test(p[col].normalize())) {
+                if (re.test(p[col].normalize())) {
+                    console.log("Found", p[col], "in", col);
+
                     return true;
                 }
             }
