@@ -31,7 +31,7 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <!-- KApp functions -->
-    <script defer src="records.js"></script>
+    <script defer src="data.js"></script>
     <script defer src="kappDb.js"></script>
     <script defer src="kappHtml.js"></script>
 
@@ -41,6 +41,7 @@
 <body>
     <div id="message">
         <h2>Norwegian Kosher List</h2>
+        <p class="info" id="metadata"></p>
         <p class="info">To search, write a text and press enter</p>
     </div>
 
@@ -63,9 +64,13 @@
             // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
             try {
+                // document.getElementById("metadata").innerHTML =
+                //     "version:" + data["metadata"].version +
+                //     ", updated:" + data["metadata"].updated_ts;
+                console.log(data["metadata"]);
 
                 const fs = useLocalDb ? {} : initFirestore(firebase);
-                initKAppDB(fs)
+                initKAppDB(fs);
 
                 // const app = firebase.app();
                 // const features = ["auth", "database", "messaging", "storage", "firestore"].filter(
