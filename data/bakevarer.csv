@@ -101,8 +101,8 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "bakevarer","kaker og boller","Bakehuset","kaker","Cappuccinokake","ik","-","-"
 "bakevarer","kaker og boller","Bakehuset","kaker","Marsipanvanilje og Bløtkake Syltetøy","ik","-","-"
 
-"bakevarer","kaker og boller","Bakehuset","wienervarer","Alle wienervarer","-","-","Kosher, saknar info om kosher-type."
-"bakevarer","kaker og boller","Bakehuset","wienervarer","Wienerstang med makron","-","-","Kosher, men saknar info om kosher-type."
+"bakevarer","kaker og boller","Bakehuset","wienervarer","Alle wienervarer","-","-","Kosher, savner info om kosher-type."
+"bakevarer","kaker og boller","Bakehuset","wienervarer","Wienerstang med makron","-","-","Kosher, men savner info om kosher-type."
 
 "bakevarer","kaker og boller","Delicato","store kaker","Fransk sjokoladekake","m","-","-"
 "bakevarer","kaker og boller","Delicato","store kaker","Mandelkake","m","-","-"

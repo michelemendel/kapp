@@ -18,7 +18,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "is & dessert","dessert","Tine","-","Piano riskrem med bringebærsaus","m","-","-"
 
 "is & dessert","dessert","Freia","-","Alle typer gelé","ik","-","-"
-"is & dessert","dessert","Freia","-","Cappuccinotopping","-","-","Saknar info om koshertype"
+"is & dessert","dessert","Freia","-","Cappuccinotopping","-","-","Savner info om koshertype"
 "is & dessert","dessert","Freia","-","Dessertsaus jordbær","p","-","-"
 "is & dessert","dessert","Freia","-","Dessertsaus bringebær","p","-","-"
 "is & dessert","dessert","Freia","-","Dessertsjokolade","m","-","-"
@@ -28,7 +28,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "is & dessert","dessert","Freia","-","Melkesjokoladepudding","m","-","-"
 "is & dessert","dessert","Freia","-","Sjokolademousse med Daim","m","-","-"
 "is & dessert","dessert","Freia","-","Sjokolademousse med","m","-","-"
-"is & dessert","dessert","Freia","-","Melkesjokoladebiter","-","-","Saknar info om koshertype"
+"is & dessert","dessert","Freia","-","Melkesjokoladebiter","-","-","Savner info om koshertype"
 "is & dessert","dessert","Freia","-","Sjokoladepudding","mprod","-","-"
 "is & dessert","dessert","Freia","-","Sjokoladetopping","p","-","-"
 "is & dessert","dessert","Freia","-","Sjokoladetopping stivner på isen","mprod","-","-"
@@ -61,7 +61,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "is & dessert","iskrem","Diplom-is","småis","Lollipop spinn","p","-","-"
 "is & dessert","iskrem","Diplom-is","småis","Mini- pia jordbær","m","-","-"
 "is & dessert","iskrem","Diplom-is","småis","Pin-up","m","-","-"
-"is & dessert","iskrem","Diplom-is","småis","Royal bringebær","-","-","Saknar info om koshertype"
+"is & dessert","iskrem","Diplom-is","småis","Royal bringebær","-","-","Savner info om koshertype"
 "is & dessert","iskrem","Diplom-is","småis","Royal hjerte","m","-","-"
 "is & dessert","iskrem","Diplom-is","småis","Royal jordbær","m","-","-"
 "is & dessert","iskrem","Diplom-is","småis","Royal lakris","m","-","-"
@@ -121,7 +121,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 "is & dessert","iskrem","Diplom-is","literis i butikk","Wanted salty "alotta" m licorice","m","-","-"
 
 "is & dessert","iskrem","Diplom-is","iskaker, desserter og tilbehør fra butikk","Favoritter fra isbaren","p","-","-"
-"is & dessert","iskrem","Diplom-is","iskaker, desserter og tilbehør fra butikk","Vaffelkjeks","-","-","Saknar info om koshertype"
+"is & dessert","iskrem","Diplom-is","iskaker, desserter og tilbehør fra butikk","Vaffelkjeks","-","-","Savner info om koshertype"
 "is & dessert","iskrem","Diplom-is","iskaker, desserter og tilbehør fra butikk","Fluffy coco kokosboller 4pk","p","-","-"
 
 "is & dessert","iskrem","Diplom-is","kuleis fra isbar/Storhusholdning","Diplom-is Appelsin & sjokolade","m","-","-"
@@ -324,7 +324,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 
 "is & dessert","iskrem","Choice","-","Smooth Vanilla","p","-","-"
 "is & dessert","iskrem","Choice","-","Heavenly Chocolate","p","-","-"
-"is & dessert","iskrem","Choice","-","Refreshing Strawberry","-","-","Saknar info om koshertype"
+"is & dessert","iskrem","Choice","-","Refreshing Strawberry","-","-","Savner info om koshertype"
 "is & dessert","iskrem","Choice","-","Lovely Vanilla","p","-","-"
 "is & dessert","iskrem","Choice","-","Almond with a Cocoa Twist","p","-","-"
 "is & dessert","iskrem","Choice","-","Refreshing Strawberry Stick","p","-","-"
