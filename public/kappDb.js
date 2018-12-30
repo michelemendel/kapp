@@ -14,10 +14,11 @@ function getProductsTest() {
     ];
 }
 
-function database(fs) {
-    const products = [];
+function database() {
+    let products = [];
 
-    const initDb = () => {
+    const initFirestoreDb = (fs) => {
+        console.log("Initializing Firestore");
         return fs.collection("products").get()
             .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -29,6 +30,12 @@ function database(fs) {
             });
     }
 
+    const initLocalDb = () => {
+        console.log("Initializing local database");
+        products = records;
+        return Promise.resolve(true);
+    }
+
     const getProducts = () => {
         return products;
     }
@@ -36,18 +43,21 @@ function database(fs) {
     const search = (str) => {
         const re = RegExp(str + ".*", "ui");
         return products.filter((p) => {
+
             for (col of search_cols) {
                 // Without the normalize method, search for the letter å doesn't work.
-                if (re.test(p[col].normalize())) {
+                if (re.test(p[col]) || re.test(p[col].normalize())) {
                     return true;
                 }
             }
+
             return false;
         });
     }
 
     return {
-        initDb,
+        initFirestoreDb,
+        initLocalDb,
         getProducts,
         search,
     }

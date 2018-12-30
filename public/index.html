@@ -31,6 +31,7 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <!-- KApp functions -->
+    <script defer src="records.js"></script>
     <script defer src="kappDb.js"></script>
     <script defer src="kappHtml.js"></script>
 
@@ -47,7 +48,8 @@
     <div id="products"></div>
 
     <script>
-        console.log("INITIALIZE FIREBASE");
+        // Use local or Firestore database.
+        const useLocalDb = true;
 
         document.addEventListener('DOMContentLoaded', function () {
             // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -61,26 +63,23 @@
             // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
             try {
-                const fs = initFirestore(firebase);
+
+                const fs = useLocalDb ? {} : initFirestore(firebase);
                 initKAppDB(fs)
 
-                const app = firebase.app();
-                const features = ["auth", "database", "messaging", "storage", "firestore"].filter(
-                    (feature) => typeof app[feature] === 'function'
-                );
-
+                // const app = firebase.app();
+                // const features = ["auth", "database", "messaging", "storage", "firestore"].filter(
+                //     (feature) => typeof app[feature] === 'function'
+                // );
                 // document.getElementById('load').innerHTML = `Firebase SDK loaded`;
-                {{/* document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`; */}}
+                // document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
             } catch (e) {
                 console.error(e);
-                document.getElementById('load').innerHTML =
-                    'Error loading the Firebase SDK, check the console.';
+                // document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
             }
         });
 
         function initFirestore(firebase) {
-            console.log("INITIALIZE FIRESTORE");
-
             const config = {
                 projectId: "kappdb-6fb1e",
             };
@@ -102,19 +101,17 @@
         }
 
         function initKAppDB(fs) {
-            console.log("INITIALIZE LOCAL DATABASE");
 
-            const db = database(fs);
+
+            const db = database();
 
             const productsRootNode = document.getElementById("products");
             const searchBarRootNode = document.getElementById("searchBar");
 
-            db.initDb()
-                .then((ready) => {
-                    console.log("READY?", ready);
-                    // console.log(db.getProducts());
-                    displaySearchBar(searchBarRootNode, productsRootNode, db);
-                });
+            (useLocalDb ? db.initLocalDb() : db.initFirestoreDb(fs))
+            .then((ready) => {
+                displaySearchBar(searchBarRootNode, productsRootNode, db);
+            });
         }
     </script>
 

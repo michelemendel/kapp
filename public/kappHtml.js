@@ -81,7 +81,7 @@ const display_cols = {
 };
 
 const kosher_type_lookup = {
-    "-": "WHY",
+    "-": "-",
     "p": "parve",
     "m": "melk",
     "mprod": "ikke melk, produsert i melk-utstyr",
