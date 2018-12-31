@@ -224,7 +224,7 @@ category,sub_category,producer,product_type,product,kosher_type,kosher_stamp,com
 
 "bakevarer","knekkebrød og flatbrød","Ryvita","-","Multi-Grain","p","-","-"
 "bakevarer","knekkebrød og flatbrød","Ryvita","-","Fullkornsrug","p","-","-"
-"bakevarer","knekkebrød og flatbrød","Ryvita","-","Sesam (OU)","p","-","-"
+"bakevarer","knekkebrød og flatbrød","Ryvita","-","Sesam","p","OU","-"
 
 "bakevarer","knekkebrød og flatbrød","Kavli","-","Fiberrik Solsikkekjerner","p","-","-"
 "bakevarer","knekkebrød og flatbrød","Kavli","-","Bruschetta Havsalt og Olivenolje","p","-","-"

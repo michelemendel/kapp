@@ -1,3 +1,6 @@
+/* Israeli flag colors: blue: #0038b8 */
+/* Norwegian flag colors: blue: #002868, red: #EF2B2D */
+
 * {
     box-sizing: border-box;
 }
@@ -17,7 +20,7 @@
     #searchBar,
     #products {
         background: white;
-        border-top: 6px solid #ffa100;
+        border-top: 6px solid #0038b8;
         max-width: 600px;
         margin: 1px auto 4px;
         padding: 0.5em 5em;
@@ -25,7 +28,7 @@
     }
 
     #message h2 {
-        color: #ffa100;
+        color: #0038b8;
         font-weight: bold;
         font-size: 16px;
         margin: 0 0 8px;
@@ -148,7 +151,7 @@
     }
 
     body {
-        border-top: 16px solid #ffa100;
+        border-top: 16px solid #0038b8;
     }
 
     #products {
