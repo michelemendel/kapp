@@ -36,8 +36,12 @@ function database() {
         return Promise.resolve(true);
     };
 
-    const getProducts = () => {
-        return products;
+    const getProducts = (uid = 0) => {
+        return uid == 0 ?
+            products :
+            products.filter((p) => {
+                return p["uid"] == uid;
+            });
     };
 
     const search = (str) => {

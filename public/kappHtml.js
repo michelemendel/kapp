@@ -2,7 +2,7 @@
  * Product List
  */
 
-function displaySearchBar(searchBarRootNode, productsRootNode, db) {
+function displaySearchBar(searchBarRootNode, productsRootNode, db, uid = 0, showids = false) {
     searchBarRootNode.innerHTML = `
         <div class="searchBar">
             <input id="searchInput" type="text" placeholder="Search...">
@@ -16,7 +16,8 @@ function displaySearchBar(searchBarRootNode, productsRootNode, db) {
 
     displayProducts(
         productsRootNode,
-        displayCount(db.getProducts())
+        displayCount(db.getProducts(uid)),
+        showids
     );
 
     // Execute a function when the user releases a key on the keyboard
@@ -27,7 +28,8 @@ function displaySearchBar(searchBarRootNode, productsRootNode, db) {
             removeProducts(productsRootNode);
             displayProducts(
                 productsRootNode,
-                displayCount(db.search(input.value))
+                displayCount(db.search(input.value)),
+                showids
             );
         }
     });
@@ -43,8 +45,8 @@ function displayProduct(productRootNode, product) {
     )
 }
 
-function displayProducts(productsRootNode, products) {
-    createProductNodes(products).forEach((productNode) => {
+function displayProducts(productsRootNode, products, showids = false) {
+    createProductNodes(products, showids).forEach((productNode) => {
         productsRootNode.appendChild(productNode);
         // horLineNode = document.createElement("hr");
         // productsRootNode.appendChild(horLineNode);
@@ -52,22 +54,31 @@ function displayProducts(productsRootNode, products) {
     return products;
 }
 
-function createProductNodes(products) {
+function createProductNodes(products, showids) {
     return products.map((product) => {
-        return createProductNode(product);
+        return createProductNode(product, showids);
     });
 }
 
-function createProductNode(product) {
+function createProductNode(product, showids = false) {
     productNode = document.createElement("div");
     productNode.classList.add("product");
-    createProductItemNodes(product).forEach((productItemNode) => {
+    createProductItemNodes(product, showids).forEach((productItemNode) => {
         productNode.appendChild(productItemNode);
     });
     return productNode;
 }
 
+const kosher_type_lookup = {
+    "-": "-",
+    "p": "parve",
+    "m": "melk",
+    "mprod": "Ikke melk, men produsert i melke-utstyr",
+    "ik": "ikke kosher",
+};
+
 const display_cols = {
+    uid: "uid",
     category: "Category",
     sub_category: "Sub Category",
     producer: "Producer",
@@ -81,16 +92,9 @@ const display_cols = {
     kosher_type_stamp: "Kosher",
 };
 
-const kosher_type_lookup = {
-    "-": "-",
-    "p": "parve",
-    "m": "melk",
-    "mprod": "Ikke melk, men produsert i melke-utstyr",
-    "ik": "ikke kosher",
-};
-
-function createProductItemNodes(product) {
+function createProductItemNodes(product, showids = false) {
     const prodList = {
+        uid: showids ? product["uid"].toString() : "-",
         category: product["sub_category"] !== "-" ? "-" : product["category"],
         cat_sub_cat: product["sub_category"] !== "-" ? product["category"] + "/" + product["sub_category"] : "-",
         producer: product["producer"],

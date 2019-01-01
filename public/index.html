@@ -8,8 +8,6 @@
 
     <title>Norwegian Kosher List</title>
 
-
-
     <!-- Firebase App is always required and must be first -->
 
     <!-- Uncomment for production, comment for local development. -->
@@ -77,7 +75,7 @@
                 const query = locationToObject()
                 console.log("HREF is", query);
 
-                initKAppDB(fs);
+                initKAppDB(fs, query.id, query.showids);
 
                 // const app = firebase.app();
                 // const features = ["auth", "database", "messaging", "storage", "firestore"].filter(
@@ -90,6 +88,18 @@
                 // document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
             }
         });
+
+        function initKAppDB(fs, uid = 0, showids = false) {
+            const db = database();
+
+            const productsRootNode = document.getElementById("products");
+            const searchBarRootNode = document.getElementById("searchBar");
+
+            (useLocalDb ? db.initLocalDb() : db.initFirestoreDb(fs))
+            .then((ready) => {
+                displaySearchBar(searchBarRootNode, productsRootNode, db, uid, showids);
+            });
+        }
 
         function initFirestore(firebase) {
             const config = {
@@ -110,18 +120,6 @@
             });
 
             return db;
-        }
-
-        function initKAppDB(fs) {
-            const db = database();
-
-            const productsRootNode = document.getElementById("products");
-            const searchBarRootNode = document.getElementById("searchBar");
-
-            (useLocalDb ? db.initLocalDb() : db.initFirestoreDb(fs))
-            .then((ready) => {
-                displaySearchBar(searchBarRootNode, productsRootNode, db);
-            });
         }
     </script>
 
