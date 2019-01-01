@@ -16,15 +16,22 @@
         padding: 0;
     }
 
+    #searchInput {
+        border-radius: 0;
+    }
+
     #message,
     #searchBar,
     #products {
         background: white;
-        border-top: 6px solid #0038b8;
         max-width: 600px;
-        margin: 1px auto 4px;
+        margin: 0 auto 3px;
         padding: 0.5em 5em;
-        border-radius: 3px;
+        border-radius: 0;
+    }
+
+    #message {
+        border-top: 16px solid #0038b8;
     }
 
     #message h2 {
@@ -55,7 +62,7 @@
         text-decoration: none;
         color: white;
         padding: 16px;
-        border-radius: 4px;
+        border-radius: 0;
     }
 
     .info {
@@ -145,13 +152,9 @@
     #products {
         background: white;
         border-top: none;
-        margin: 0px auto 3px;
+        margin: 0 auto;
         box-shadow: none;
         padding: 0.5em 5em 0.5em 2em;
-    }
-
-    body {
-        border-top: 16px solid #0038b8;
     }
 
     #products {
