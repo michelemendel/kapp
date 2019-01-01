@@ -28,7 +28,7 @@
 
     <!-- initialize the SDK after all desired features are loaded -->
     <!-- Uncomment for production, comment for local development. -->
-    <script defer src="/__/firebase/init.js"></script>
+    <!-- <script defer src="/__/firebase/init.js"></script> -->
 
     <!-- KApp functions -->
     <script defer src="data.js"></script>
@@ -52,24 +52,31 @@
         // Use local or Firestore database.
         const useLocalDb = true;
 
+        function locationToObject() {
+            let kv;
+            return location.search.slice(1).split("&").reduce((acc, curr) => {
+                kv = curr.split("=");
+                acc[kv[0]] = kv[1];
+                return acc;
+            }, {});
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-            // // The Firebase SDK is initialized and available here!
-            //
+            // The Firebase SDK is initialized and available here!
             // firebase.auth().onAuthStateChanged(user => { });
             // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
             // firebase.messaging().requestPermission().then(() => { });
             // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-            //
-            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
             try {
-                // document.getElementById("metadata").innerHTML =
-                //     "version:" + data["metadata"].version +
-                //     ", updated:" + data["metadata"].updated_ts;
+                // document.getElementById("metadata").innerHTML = "version:" + data["metadata"].version + ", updated:" + data["metadata"].updated_ts;
+                const fs = useLocalDb ? {} : initFirestore(firebase);
+
                 console.log(data["metadata"]);
 
-                const fs = useLocalDb ? {} : initFirestore(firebase);
+                const query = locationToObject()
+                console.log("HREF is", query);
+
                 initKAppDB(fs);
 
                 // const app = firebase.app();
@@ -106,8 +113,6 @@
         }
 
         function initKAppDB(fs) {
-
-
             const db = database();
 
             const productsRootNode = document.getElementById("products");
