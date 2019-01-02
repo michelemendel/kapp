@@ -1,55 +1,12 @@
-/**
- * Product List
- */
-
-function displaySearchBar(searchBarRootNode, productsRootNode, db, uid = 0, showids = false) {
-    searchBarRootNode.innerHTML = `
-        <div class="searchBar">
-            <input id="searchInput" type="text" placeholder="Search...">
-            <span id="product_count" class="info"></span>
-        </div>
-    `
-    displayCount = (products) => {
-        document.querySelector("#product_count").innerHTML = products.length;
-        return products;
-    };
-
-    displayProducts(
-        productsRootNode,
-        displayCount(db.getProducts(uid)),
-        showids
-    );
-
-    // Execute a function when the user releases a key on the keyboard
-    const input = document.getElementById("searchInput");
-    input.addEventListener("keyup", function (event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            removeProducts(productsRootNode);
-            displayProducts(
-                productsRootNode,
-                displayCount(db.search(input.value)),
-                showids
-            );
-        }
-    });
-}
-
-/**
- * Product List
- */
-
-function displayProduct(productRootNode, product) {
+export function displayProduct(productRootNode, product) {
     productRootNode.appendChild(
         createProductNode(product)
     )
 }
 
-function displayProducts(productsRootNode, products, showids = false) {
+export function displayProducts(productsRootNode, products, showids = false) {
     createProductNodes(products, showids).forEach((productNode) => {
         productsRootNode.appendChild(productNode);
-        // horLineNode = document.createElement("hr");
-        // productsRootNode.appendChild(horLineNode);
     });
     return products;
 }
@@ -61,7 +18,7 @@ function createProductNodes(products, showids) {
 }
 
 function createProductNode(product, showids = false) {
-    productNode = document.createElement("div");
+    const productNode = document.createElement("div");
     productNode.classList.add("product");
     createProductItemNodes(product, showids).forEach((productItemNode) => {
         productNode.appendChild(productItemNode);
@@ -107,15 +64,15 @@ function createProductItemNodes(product, showids = false) {
     return Object.keys(prodList)
         .filter((key) => prodList[key].trim() !== "-")
         .map((key) => {
-            contentKeyNode = document.createElement("div");
+            const contentKeyNode = document.createElement("div");
             contentKeyNode.classList.add("contentKey");
             contentKeyNode.appendChild(createContentNode(display_cols[key]))
 
-            contentValueNode = document.createElement("div");
+            const contentValueNode = document.createElement("div");
             contentValueNode.classList.add("contentValue");
             contentValueNode.appendChild(createContentNode(prodList[key]))
 
-            productItemNode = document.createElement("div");
+            const productItemNode = document.createElement("div");
             productItemNode.classList.add("productItem");
             productItemNode.appendChild(contentKeyNode);
             productItemNode.appendChild(contentValueNode);
@@ -124,11 +81,11 @@ function createProductItemNodes(product, showids = false) {
 }
 
 function createContentNode(content) {
-    contentNode = document.createTextNode(content);
+    const contentNode = document.createTextNode(content);
     return contentNode;
 }
 
-function removeProducts(productsRootNode) {
+export function removeProducts(productsRootNode) {
     while (productsRootNode.firstChild) {
         productsRootNode.removeChild(productsRootNode.firstChild);
     }

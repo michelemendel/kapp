@@ -20,37 +20,31 @@
 
     <!-- include only the Firebase features as you need -->
     <!-- <script defer src="/__/firebase/5.7.1/firebase-auth.js"></script> -->
-    <!-- <script defer src="/__/firebase/5.7.1/firebase-database.js"></script> -->
     <!-- <script defer src="/__/firebase/5.7.1/firebase-messaging.js"></script> -->
-    <!-- <script defer src="/__/firebase/5.7.1/firebase-storage.js"></script> -->
 
     <!-- initialize the SDK after all desired features are loaded -->
     <!-- Uncomment for production, comment for local development. -->
     <!-- <script defer src="/__/firebase/init.js"></script> -->
 
-    <!-- KApp functions -->
-    <script defer src="data.js"></script>
-    <script defer src="kappDb.js"></script>
-    <script defer src="kappHtml.js"></script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="message">
-        <h2>Norwegian Kosher List</h2>
+    <div id="header">
+        <h1>Norwegian Kosher List</h1>
+        <!-- <span>?</span> -->
         <p class="info" id="metadata"></p>
         <p class="info">To search, write a text and press enter</p>
     </div>
-
     <div id="searchBar"></div>
     <div id="products"></div>
 
-    <script>
-        // Use local or Firestore database.
-        const useLocalDb = true;
+    <script type="module">
+        import {data} from "./data.js";
+        import * as view from "./mainView.js";
+        import * as database from "./kappDb.js";
 
-        function locationToObject() {
+        function getQueryData() {
             let kv;
             return location.search.slice(1).split("&").reduce((acc, curr) => {
                 kv = curr.split("=");
@@ -60,46 +54,17 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            // The Firebase SDK is initialized and available here!
-            // firebase.auth().onAuthStateChanged(user => { });
-            // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-            // firebase.messaging().requestPermission().then(() => { });
-            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+            const query = getQueryData()
 
-            try {
-                // document.getElementById("metadata").innerHTML = "version:" + data["metadata"].version + ", updated:" + data["metadata"].updated_ts;
-                const fs = useLocalDb ? {} : initFirestore(firebase);
+            console.log(data["metadata"]);
+            console.log("query", query);
 
-                console.log(data["metadata"]);
-
-                const query = locationToObject()
-                console.log("HREF is", query);
-
-                initKAppDB(fs, query.id, query.showids);
-
-                // const app = firebase.app();
-                // const features = ["auth", "database", "messaging", "storage", "firestore"].filter(
-                //     (feature) => typeof app[feature] === 'function'
-                // );
-                // document.getElementById('load').innerHTML = `Firebase SDK loaded`;
-                // document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-            } catch (e) {
-                console.error(e);
-                // document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-            }
+            const db = database.init(data);
+            db.initLocalDb()
+                .then((ready) => {
+                    view.init(db, query.id, query.showids);
+                });
         });
-
-        function initKAppDB(fs, uid = 0, showids = false) {
-            const db = database();
-
-            const productsRootNode = document.getElementById("products");
-            const searchBarRootNode = document.getElementById("searchBar");
-
-            (useLocalDb ? db.initLocalDb() : db.initFirestoreDb(fs))
-            .then((ready) => {
-                displaySearchBar(searchBarRootNode, productsRootNode, db, uid, showids);
-            });
-        }
 
         function initFirestore(firebase) {
             const config = {

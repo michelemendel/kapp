@@ -7,8 +7,8 @@
 
 @media screen {
     body {
-        background: #ECEFF1;
         color: rgba(0, 0, 0, 0.87);
+        background: #ECEFF1;
         /* font-family: Roboto, Helvetica, Arial, sans-serif; */
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
         font-size: 16px;
@@ -18,62 +18,62 @@
 
     #searchInput {
         border-radius: 0;
+        margin-right: 0.3em
     }
 
-    #message,
+    #header,
     #searchBar,
     #products {
         background: white;
+        border-radius: 0;
         max-width: 600px;
         margin: 0 auto 3px;
         padding: 0.5em 5em;
-        border-radius: 0;
     }
 
-    #message {
+    #header {
         border-top: 16px solid #0038b8;
     }
 
-    #message h2 {
+    #header h1 {
         color: #0038b8;
-        font-weight: bold;
         font-size: 16px;
+        font-weight: bold;
         margin: 0 0 8px;
     }
 
-    #message h1 {
-        font-size: 22px;
-        font-weight: 300;
-        color: rgba(0, 0, 0, 0.6);
-        margin: 0 0 16px;
+    #header h2 {
+        color: #0038b8;
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0 0 8px;
     }
 
-    #message p {
+    #header p {
+        font-size: 9px;
         line-height: 140%;
         margin: 4px 0 4px;
-        font-size: 9px;
     }
 
-    #message a {
-        display: block;
-        text-align: center;
+    #header a {
         background: #039be5;
+        border-radius: 0;
+        color: white;
+        display: block;
+        padding: 16px;
+        text-align: center;
         text-transform: uppercase;
         text-decoration: none;
-        color: white;
-        padding: 16px;
-        border-radius: 0;
-    }
-
-    .info {
-        color: rgba(0, 0, 0, 0.4);
-        /* text-align: center; */
-        font-size: 9px;
     }
 
     #products {
         font-size: 12px;
         padding: 9px 0
+    }
+
+    .info {
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 9px;
     }
 
     .product {
@@ -94,33 +94,6 @@
         border: 0 none;
     }
 
-
-    /* fallback 30%/70% float layout */
-    /* .contentValue {
-        clear: both;
-        float: right;
-        width: 70%;
-    }
-
-    .contentKey {
-        float: right;
-        width: 30%;
-        text-align: right;
-        padding: 0.25em 1em 0 0;
-    }
-
-    .contentValue {
-        width: auto;
-        float: left;
-        margin: 0.5em 0.5em 0 30%;
-    }
-
-    .contentValue+.contentKey {
-        width: auto;
-        text-align: left;
-    } */
-
-
     /* grid layout */
     @supports (display: grid) {
         .productItem {
@@ -128,30 +101,25 @@
             grid-template-columns: 10em auto;
             grid-gap: 0.3em 0.6em;
             grid-auto-flow: dense;
-            /* align-items: baseline; */
         }
 
         .contentKey {
             grid-column: 1;
             justify-self: end;
-            /* align-self: baseline; */
         }
 
         .contentValue {
             grid-column: 2;
-            /* align-self: baseline; */
         }
     }
 }
 
 @media (max-width: 600px) {
 
-    /* body, */
-    #message,
+    #header,
     #searchBar,
     #products {
         background: white;
-        border-top: none;
         margin: 0 auto;
         box-shadow: none;
         padding: 0.5em 5em 0.5em 2em;
