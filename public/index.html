@@ -31,8 +31,20 @@
 
 <body>
     <div id="header">
-        <h1>Norwegian Kosher List</h1>
-        <!-- <span>?</span> -->
+        <h1 class="header__topline">
+            Norwegian Kosher List
+            <span id="info_modal__open" class="info_modal__open"></span>
+        </h1>
+
+        <!-- The Modal -->
+        <div id="info_modal" class="info_modal">
+            <!-- Modal content -->
+            <div class="info_modal__content">
+                <span class="info_modal__close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+        </div>
+
         <p class="info" id="metadata"></p>
         <p class="info">To search, write a text and press enter</p>
     </div>

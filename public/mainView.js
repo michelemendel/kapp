@@ -12,7 +12,8 @@ export function init(db, uid = 0, showids = false) {
         showids
     );
 
-    initEventHandlers(db, productsRootNode, showids);
+    infoModalEventHandler();
+    searchEventHandler(db, productsRootNode, showids);
 }
 
 function displaySearch(searchBarRootNode) {
@@ -38,11 +39,11 @@ function displayCount(products) {
 /** 
  * Execute search when the user releases a key on the keyboard.
  */
-function initEventHandlers(db, productsRootNode, showids) {
+function searchEventHandler(db, productsRootNode, showids) {
     const input = document.getElementById("searchInput");
-    input.addEventListener("keyup", function (event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
+    input.addEventListener("keyup", function (e) {
+        e.preventDefault();
+        if (e.keyCode === 13) {
             products.removeProducts(productsRootNode);
             products.displayProducts(
                 productsRootNode,
@@ -51,4 +52,27 @@ function initEventHandlers(db, productsRootNode, showids) {
             );
         }
     });
+}
+
+function infoModalEventHandler() {
+    const infoModalButton = document.getElementById("info_modal__open");
+    var modal = document.getElementById('info_modal');
+    // Get the <span> element that closes the modal
+    var infoModalClose = document.getElementsByClassName("info_modal__close")[0];
+
+    infoModalButton.onclick = () => {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    infoModalClose.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
