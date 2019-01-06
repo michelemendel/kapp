@@ -1,0 +1,77 @@
+/* Israeli flag colors: blue: #0038b8 */
+/* Norwegian flag colors: blue: #002868, red: #EF2B2D */
+
+@media screen {
+
+    .main__header,
+    .main__searchBar,
+    .main__footer {
+        background: white;
+        border-radius: 0;
+        margin: 0 auto 0;
+        max-width: 600px;
+        padding: 0 3em;
+    }
+
+    .main__header,
+    .main__searchBar {
+        overflow: hidden;
+    }
+
+    .main__header {
+        border-top: 9px solid #0038b8;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1vh;
+    }
+
+    .main__header__title {
+        margin: 0;
+    }
+
+    .main__searchBar {
+        padding-bottom: 1vh;
+    }
+
+    .main__searchBar__info {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .main__footer {
+        border-bottom: 9px solid #0038b8;
+        bottom: 0px;
+        height: 9px;
+        left: 50%;
+        margin: 0 -300px;
+        width: 600px;
+        padding-bottom: 8px;
+        position: fixed;
+    }
+
+    .main__searchBar__searchInput {
+        border-radius: 0;
+        margin-right: 0.3em
+    }
+
+    .main__searchBar__info {
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 9px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main__header,
+    .main__searchBar {
+        background: white;
+        margin: 0 auto;
+        box-shadow: none;
+        padding: 0 1.2em 0.5em 2em;
+    }
+
+    .main__header {
+        padding-top: 1vh;
+    }
+}

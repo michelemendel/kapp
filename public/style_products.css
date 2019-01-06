@@ -1,0 +1,90 @@
+@media screen {
+
+    .main__products {
+        background: white;
+        border-radius: 0;
+        margin: 0 auto 0;
+        max-width: 600px;
+        padding: 0 3em;
+    }
+
+    .main__products {
+        font-size: 12px;
+        height: 88vh;
+        padding: 9px 0 10vh 0;
+        overflow-y: scroll;
+        /* Smooth scrolling; has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main__products__product {
+        border-bottom: 1px solid lightgray;
+    }
+
+    .main__products__product__productItem__contentKey,
+    .main__products__product__productItem__contentValue {
+        padding: 0.1em 0em;
+    }
+
+    .main__products__product__productItem__contentKey {
+        color: gray;
+        /* color: #933; */
+    }
+
+    .main__products__product__productItem__contentValue {
+        outline: 0 none;
+        border: 0 none;
+    }
+
+    .main__products__product__productItem__contentValue--milk {
+        color: #0038b8;
+    }
+
+    .main__products__product__productItem__contentValue--parve {
+        color: black;
+    }
+
+    .main__products__product__productItem__contentValue--treif {
+        color: crimson;
+    }
+
+    .main__products__product__productItem__contentValue--product {
+        font-weight: bold;
+    }
+
+    /* grid layout */
+    @supports (display: grid) {
+        .main__products__product__productItem {
+            display: grid;
+            grid-template-columns: 10em auto;
+            grid-gap: 0.3em 0.6em;
+            grid-auto-flow: dense;
+        }
+
+        .main__products__product__productItem__contentKey {
+            grid-column: 1;
+            justify-self: end;
+        }
+
+        .main__products__product__productItem__contentValue {
+            grid-column: 2;
+        }
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .main__products {
+        background: white;
+        margin: 0 auto;
+        box-shadow: none;
+        padding: 0 1.2em 0.5em 2em;
+    }
+
+    .main__products {
+        font-size: 9px;
+        padding: 9px 0 10vh 0;
+    }
+}

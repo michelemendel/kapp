@@ -1,4 +1,4 @@
-import * as products from "./productsView.js";
+import * as products from "./js_productsView.js";
 
 export function init(db, uid = 0, showids = false) {
     const productsRootNode = document.getElementById("products");

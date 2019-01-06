@@ -26,7 +26,10 @@
     <!-- Uncomment for production, comment for local development. -->
     <!-- <script defer src="/__/firebase/init.js"></script> -->
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_main.css">
+    <link rel="stylesheet" href="style_basic.css">
+    <link rel="stylesheet" href="style_products.css">
+    <link rel="stylesheet" href="style_info_modal.css">
 </head>
 
 <body>
@@ -116,9 +119,9 @@
 
 
     <script type="module">
-        import {data} from "./data.js";
-        import * as view from "./mainView.js";
-        import * as database from "./kappDb.js";
+        import {data} from "./js_data.js";
+        import * as view from "./js_mainView.js";
+        import * as database from "./js_kappDb.js";
 
         function getQueryData() {
             let kv;
