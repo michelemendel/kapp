@@ -19,7 +19,7 @@ function createProductNodes(products, showids) {
 
 function createProductNode(product, showids = false) {
     const productNode = document.createElement("div");
-    productNode.classList.add("product");
+    productNode.classList.add("main__products__product");
     createProductItemNodes(product, showids).forEach((productItemNode) => {
         productNode.appendChild(productItemNode);
     });
@@ -65,15 +65,15 @@ function createProductItemNodes(product, showids = false) {
         .filter((key) => prodList[key].trim() !== "-")
         .map((key) => {
             const contentKeyNode = document.createElement("div");
-            contentKeyNode.classList.add("contentKey");
+            contentKeyNode.classList.add("main__products__product__productItem__contentKey");
             contentKeyNode.appendChild(createContentNode(display_cols[key]))
 
             const contentValueNode = document.createElement("div");
-            contentValueNode.classList.add("contentValue");
+            contentValueNode.classList.add("main__products__product__productItem__contentValue");
             contentValueNode.appendChild(createContentNode(prodList[key]))
 
             const productItemNode = document.createElement("div");
-            productItemNode.classList.add("productItem");
+            productItemNode.classList.add("main__products__product__productItem");
             productItemNode.appendChild(contentKeyNode);
             productItemNode.appendChild(contentValueNode);
             return productItemNode;

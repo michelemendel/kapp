@@ -6,61 +6,21 @@
 }
 
 @media screen {
-    body {
-        color: rgba(0, 0, 0, 0.87);
-        background: #ECEFF1;
-        /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
-        font-size: 16px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .header__topline {
-        display: flex;
-        justify-content: space-between
-    }
-
-    #searchInput {
-        border-radius: 0;
-        margin-right: 0.3em
-    }
-
-    #header,
-    #searchBar,
-    #products {
-        background: white;
-        border-radius: 0;
-        max-width: 600px;
-        margin: 0 auto 3px;
-        padding: 0.5em 3em;
-    }
-
-    #header {
-        border-top: 16px solid #0038b8;
-    }
-
-    #header h1 {
+    h1 {
         color: #0038b8;
         font-size: 16px;
         font-weight: bold;
         margin: 0 0 8px;
     }
 
-    #header h2 {
+    h2 {
         color: #0038b8;
         font-weight: bold;
         font-size: 14px;
         margin: 0 0 8px;
     }
 
-    #header p {
-        font-size: 9px;
-        line-height: 140%;
-        margin: 4px 0 4px;
-    }
-
-    #header a {
+    a {
         background: #039be5;
         border-radius: 0;
         color: white;
@@ -71,54 +31,120 @@
         text-decoration: none;
     }
 
-    #products {
-        font-size: 12px;
-        padding: 9px 0
+    body {
+        color: rgba(0, 0, 0, 0.87);
+        background: #ECEFF1;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
     }
 
-    .info {
+    .main__header,
+    .main__searchBar,
+    .main__products,
+    .main__footer {
+        background: white;
+        border-radius: 0;
+        margin: 0 auto 0;
+        max-width: 600px;
+        padding: 0 3em;
+    }
+
+    .main__header,
+    .main__searchBar {
+        overflow: hidden;
+    }
+
+    .main__header {
+        border-top: 9px solid #0038b8;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1vh;
+    }
+
+    .main__header__title {
+        margin: 0;
+    }
+
+    .main__searchBar {
+        padding-bottom: 1vh;
+    }
+
+    .main__searchBar__info {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .main__products {
+        font-size: 12px;
+        height: 88vh;
+        padding: 9px 0 10vh 0;
+        overflow-y: scroll;
+        /* Smooth scrolling; has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .main__footer {
+        border-bottom: 9px solid #0038b8;
+        bottom: 0px;
+        height: 9px;
+        left: 50%;
+        margin: 0 -300px;
+        width: 600px;
+        padding-bottom: 8px;
+        position: fixed;
+    }
+
+    .main__searchBar__searchInput {
+        border-radius: 0;
+        margin-right: 0.3em
+    }
+
+    .main__searchBar__info {
         color: rgba(0, 0, 0, 0.4);
         font-size: 9px;
     }
 
-    .product {
+    .main__products__product {
         border-bottom: 1px solid lightgray;
     }
 
-    .contentKey,
-    .contentValue {
+    .main__products__product__productItem__contentKey,
+    .main__products__product__productItem__contentValue {
         padding: 0.1em 0em;
     }
 
-    .contentKey {
+    .main__products__product__productItem__contentKey {
         color: #933;
     }
 
-    .contentValue {
+    .main__products__product__productItem__contentValue {
         outline: 0 none;
         border: 0 none;
     }
 
     /* grid layout */
     @supports (display: grid) {
-        .productItem {
+        .main__products__product__productItem {
             display: grid;
             grid-template-columns: 10em auto;
             grid-gap: 0.3em 0.6em;
             grid-auto-flow: dense;
         }
 
-        .contentKey {
+        .main__products__product__productItem__contentKey {
             grid-column: 1;
             justify-self: end;
         }
 
-        .contentValue {
+        .main__products__product__productItem__contentValue {
             grid-column: 2;
         }
     }
 
-    /* The Modal (background) */
+    /* The Info Modal */
     .info_modal {
         display: none;
         /* Stay in place */
@@ -131,29 +157,62 @@
         top: 0;
         width: 100%;
         height: 100%;
-        /* Enable scroll if needed */
-        overflow: auto;
-        /* Fallback color */
-        background-color: rgb(0, 0, 0);
-        /* Black w/ opacity */
         background-color: rgba(0, 0, 0, 0.4);
     }
 
-    /* Modal Content */
     .info_modal__content {
+        width: 100%;
+        height: 90%;
+    }
+
+    .info_modal__content__header,
+    .info_modal__content__body {
         background-color: #fefefe;
         margin: auto;
         padding: 20px;
-        border: 1px solid #888;
         width: 80%;
     }
 
-    /* The Close Button */
+    .info_modal__content__header {
+        border-bottom: 1px solid #888;
+    }
+
+    .info_modal__content__header__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .info_modal__content__body {
+        height: 100%;
+        overflow-y: scroll;
+        /* Smooth scrolling; has to be scroll, not auto */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .info_modal__content__body__p,
+    .info_modal__content__body__ul {
+        font-size: 12px;
+    }
+
+    .info_modal__content__body__p {
+        line-height: 140%;
+        margin: 4px 0 16px 0;
+    }
+
+    .info_modal__content__body__ul {
+        /* list-style-type: none; */
+    }
+
+    .info_modal__content__body__li {
+        margin: 4px 0 16px 0;
+    }
+
     .info_modal__close {
         color: #aaaaaa;
         float: right;
-        font-size: 28px;
-        font-weight: bold;
+        font-size: 50px;
+        line-height: 23px;
+        padding-right: 1.8em;
     }
 
     .info_modal__close:hover,
@@ -184,13 +243,9 @@
     .info_modal__open:hover p {
         display: block;
         transform-origin: 100% 0%;
-        -webkit-animation: fadeIn 0.3s ease-in-out;
-        animation: fadeIn 0.3s ease-in-out;
-
     }
 
     .info_modal__open p {
-        /* The tooltip */
         display: none;
         text-align: left;
         background-color: #1E2021;
@@ -205,7 +260,6 @@
     }
 
     .info_modal__open p:before {
-        /* The pointer of the tooltip */
         position: absolute;
         content: '';
         width: 0;
@@ -229,53 +283,42 @@
 
 @media (max-width: 600px) {
 
-    #header,
-    #searchBar,
-    #products {
+    .main__header,
+    .main__searchBar,
+    .main__products {
         background: white;
         margin: 0 auto;
         box-shadow: none;
-        padding: 0.5em 1.2em 0.5em 2em;
+        padding: 0 1.2em 0.5em 2em;
     }
 
-    #products {
+    .main__products {
         font-size: 9px;
-        padding: 9px 0
+        padding: 9px 0 10vh 0;
+    }
+
+    .main__header {
+        padding-top: 1vh;
     }
 
     .info_modal {
         padding: 2em 0.2em;
     }
 
-    .info_modal__content {
+    .info_modal__content__header {
+        border-bottom: 1px solid #888;
+    }
+
+    .info_modal__content__header,
+    .info_modal__content__body {
         width: 95%;
     }
 
-}
-
-
-
-
-/* CSS animation */
-
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.6);
+    .info_modal__content__header__title {
+        font-size: 20px;
     }
 
-    100% {
-        opacity: 100%;
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 100%;
+    .info_modal__close {
+        padding-right: 0.2em;
     }
 }

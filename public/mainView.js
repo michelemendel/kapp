@@ -18,21 +18,21 @@ export function init(db, uid = 0, showids = false) {
 
 function displaySearch(searchBarRootNode) {
     const input = document.createElement("input");
-    input.setAttribute("class", "searchInput");
-    input.setAttribute("id", "searchInput");
+    input.setAttribute("class", "main__searchBar__searchInput");
+    input.setAttribute("id", "main__searchBar__searchInput");
     input.setAttribute("type", "text");
     input.setAttribute("placeholder", "Search...");
 
     const count = document.createElement("span");
-    count.setAttribute("id", "product_count");
-    count.setAttribute("class", "info");
+    count.setAttribute("id", "main__searchBar__product_count");
+    count.setAttribute("class", "main__searchBar__info");
 
     searchBarRootNode.appendChild(input);
     searchBarRootNode.appendChild(count);
 }
 
 function displayCount(products) {
-    document.querySelector("#product_count").textContent = products.length;
+    document.querySelector("#main__searchBar__product_count").textContent = products.length;
     return products;
 }
 
@@ -40,7 +40,7 @@ function displayCount(products) {
  * Execute search when the user releases a key on the keyboard.
  */
 function searchEventHandler(db, productsRootNode, showids) {
-    const input = document.getElementById("searchInput");
+    const input = document.getElementById("main__searchBar__searchInput");
     input.addEventListener("keyup", function (e) {
         e.preventDefault();
         if (e.keyCode === 13) {
@@ -56,17 +56,20 @@ function searchEventHandler(db, productsRootNode, showids) {
 
 function infoModalEventHandler() {
     const infoModalButton = document.getElementById("info_modal__open");
-    var modal = document.getElementById('info_modal');
+    var modal = document.getElementById("info_modal");
+    var body = document.getElementsByTagName("body")[0];
     // Get the <span> element that closes the modal
     var infoModalClose = document.getElementsByClassName("info_modal__close")[0];
 
     infoModalButton.onclick = () => {
         modal.style.display = "block";
+        body.setAttribute("style", "overflow:hidden");
     }
 
     // When the user clicks on <span> (x), close the modal
     infoModalClose.onclick = function () {
         modal.style.display = "none";
+        body.setAttribute("style", "overflow:auto");
     }
 
     // When the user clicks anywhere outside of the modal, close it

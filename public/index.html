@@ -30,26 +30,90 @@
 </head>
 
 <body>
-    <div id="header">
-        <h1 class="header__topline">
-            Norwegian Kosher List
+    <div class="main">
+        <div class="main__header">
+            <h1 class="main__header__title"> Norwegian Kosher List </h1>
             <span id="info_modal__open" class="info_modal__open"></span>
-        </h1>
-
-        <!-- The Modal -->
-        <div id="info_modal" class="info_modal">
-            <!-- Modal content -->
-            <div class="info_modal__content">
-                <span class="info_modal__close">&times;</span>
-                <p>Some text in the Modal..</p>
-            </div>
         </div>
 
-        <p class="info" id="metadata"></p>
-        <p class="info">To search, write a text and press enter</p>
+        <div id="searchBar" class="main__searchBar">
+            <p class="main__searchBar__info">To search, write a text and press enter</p>
+        </div>
+
+        <div id="products" class="main__products"></div>
+
+        <div class="main__footer">
+        </div>
     </div>
-    <div id="searchBar"></div>
-    <div id="products"></div>
+
+    <div id="info_modal" class="info_modal">
+        <span class="info_modal__close">&times;</span>
+
+        <div class="info_modal__content">
+
+            <div class="info_modal__content__header">
+                <span class="info_modal__content__header__title">Kosher App</span>
+            </div>
+
+            <div class="info_modal__content__body">
+                <h2>About</h2>
+                <p class="info_modal__content__body__p">
+                    Lorem ipsum dolor sit amet, justo ante. Lacinia dignissim, a faucibus. Ante litora tortor. Nisl
+                    mauris leo, luctus ac semper. Sed quam vitae. Tellus pharetra in. Vel lobortis, dapibus arcu,
+                    et
+                    tortor. Nullam metus viverra, maecenas a purus. Pulvinar vitae.
+                </p>
+
+                <p class="info_modal__content__body__p">
+                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
+                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
+                    etiam,
+                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
+                </p>
+
+                <p class="info_modal__content__body__p">
+                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
+                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
+                    etiam,
+                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
+                </p>
+
+                <p class="info_modal__content__body__p">
+                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
+                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
+                    etiam,
+                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
+                </p>
+
+                <p class="info_modal__content__body__p">
+                    Lorem ipsum dolor sit amet, justo ante. Lacinia dignissim, a faucibus. Ante litora tortor. Nisl
+                    mauris leo, luctus ac semper. Sed quam vitae. Tellus pharetra in. Vel lobortis, dapibus arcu,
+                    et
+                    tortor. Nullam metus viverra, maecenas a purus. Pulvinar vitae.
+                </p>
+
+                <h2>Contact</h2>
+                <p class="info_modal__content__body__p">
+                    For questions or comments, please contact...
+                    John Doe
+                    johndoe@abc.abc
+                </p>
+
+                <h2>Tips</h2>
+                <p class="info_modal__content__body__p">
+                    <ul class="info_modal__content__body__ul">
+                        <li class="info_modal__content__body__li">To see all the products id, add ?showids=1 to the end
+                            of
+                            the URL</li>
+                        <li class="info_modal__content__body__li">To see a specific product - that you can share - add
+                            ?id=123,
+                            where 123 has to change to the id you want to see.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
 
     <script type="module">
         import {data} from "./data.js";
