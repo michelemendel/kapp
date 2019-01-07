@@ -29,6 +29,7 @@
 
     .info_modal__content__header {
         border-bottom: 1px solid #888;
+        position: relative;
     }
 
     .info_modal__content__header__title {
@@ -58,16 +59,17 @@
     }
 
     .info_modal__close {
-        /* position: absolute; */
-        /* top: 20px; */
-        /* right: 45px; */
-        /* font-size: 60px; */
-
         color: #aaaaaa;
-        float: right;
         font-size: 50px;
-        line-height: 23px;
-        padding-right: 1.8em;
+        line-height: 25px;
+        position: absolute;
+        right: 4px;
+        top: 0px;
+    }
+
+    .info_modal__close:after {
+        /* content: '✖'; */
+        content: '×';
     }
 
     .info_modal__close:hover,
@@ -154,9 +156,5 @@
 
     .info_modal__content__header__title {
         font-size: 20px;
-    }
-
-    .info_modal__close {
-        padding-right: 0.2em;
     }
 }
