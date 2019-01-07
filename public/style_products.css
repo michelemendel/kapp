@@ -10,8 +10,8 @@
 
     .main__products {
         font-size: 12px;
-        height: 88vh;
-        padding: 9px 0 10vh 0;
+        height: 89vh;
+        padding: 9px 0 20vh 0;
         overflow-y: scroll;
         /* Smooth scrolling; has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
@@ -56,7 +56,7 @@
     @supports (display: grid) {
         .main__products__product__productItem {
             display: grid;
-            grid-template-columns: 10em auto;
+            grid-template-columns: 7em auto;
             grid-gap: 0.3em 0.6em;
             grid-auto-flow: dense;
         }
@@ -74,7 +74,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
 
     .main__products {
         background: white;
@@ -84,7 +84,7 @@
     }
 
     .main__products {
-        font-size: 9px;
-        padding: 9px 0 10vh 0;
+        font-size: 12px;
+        padding: 9px 0 25vh 0;
     }
 }

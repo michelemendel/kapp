@@ -32,7 +32,7 @@ export const DISPLAY_COLS = {
     kosher_stamp: "Kosher Stamp",
     comment: "Comment",
     // 
-    cat_sub_cat: "Category/Subcat",
+    cat_sub_cat: "Category",
     kosher_type_stamp: "Kosher",
 };
 

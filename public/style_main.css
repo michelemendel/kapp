@@ -10,7 +10,7 @@
         border-radius: 0;
         margin: 0 auto 0;
         max-width: 600px;
-        padding: 0 3em;
+        padding: 0 2em;
     }
 
     .main__header,
@@ -36,6 +36,15 @@
     .main__searchBar__info {
         margin-top: 0;
         margin-bottom: 0;
+        color: rgba(0, 0, 0, 0.4);
+        font-size: 11px;
+    }
+
+    .main__searchBar__searchInput {
+        border-radius: 0;
+        font-size: 16px;
+        margin-right: 0.3em;
+        width: 85%;
     }
 
     .main__footer {
@@ -48,20 +57,10 @@
         padding-bottom: 8px;
         position: fixed;
     }
-
-    .main__searchBar__searchInput {
-        border-radius: 0;
-        margin-right: 0.3em
-    }
-
-    .main__searchBar__info {
-        color: rgba(0, 0, 0, 0.4);
-        font-size: 9px;
-    }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
 
     .main__header,
     .main__searchBar {
