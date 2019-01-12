@@ -16,7 +16,7 @@
 
     <!-- Uncomment for local development, comment for production. -->
     <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script> -->
 
     <!-- include only the Firebase features as you need -->
     <!-- <script defer src="/__/firebase/5.7.1/firebase-auth.js"></script> -->
@@ -50,12 +50,13 @@
     </div>
 
     <div id="info_modal" class="info_modal">
-
         <div class="info_modal__content">
 
             <div class="info_modal__content__header">
                 <div class="info_modal__close"></div>
-                <span class="info_modal__content__header__title">Kosher App</span>
+                <span class="info_modal__content__header__logo"><img src="media/logo_vaadhakashrut.jpg" alt="" width="40%"></span>
+                <span class="info_modal__content__header__logo"><img src="media/logo_dmt.png" alt="" width="40%"></span>
+                <!-- <span class="info_modal__content__header__title">Kosher App</span> -->
             </div>
 
             <div class="info_modal__content__body">
@@ -116,14 +117,14 @@
             </div>
 
         </div>
-        
-    </div>
 
+    </div>
 
     <script type="module">
         import {data} from "./js_data.js";
         import * as view from "./js_mainView.js";
         import * as database from "./js_kappDb.js";
+        import * as sw from "./js_serviceWorker.js";
 
         function getQueryData() {
             let kv;
@@ -135,6 +136,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
+            sw.initServiceWorker()
+
             const query = getQueryData()
 
             console.log(data["metadata"]);
@@ -147,26 +150,6 @@
                 });
         });
 
-        function initFirestore(firebase) {
-            const config = {
-                projectId: "kappdb-6fb1e",
-            };
-
-            // Only call this when developing on local machine.
-            if (window.location.hostname === "") {
-                firebase.initializeApp(config);
-            }
-
-            // Initialize Cloud Firestore through Firebase
-            const db = firebase.firestore();
-
-            // Disable deprecated features
-            db.settings({
-                timestampsInSnapshots: true
-            });
-
-            return db;
-        }
     </script>
 
 </body>

@@ -3,7 +3,7 @@ export const KOSHER_TYPE_LOOKUP = {
     "p": "parve",
     "m": "melk",
     "mprod": "Ikke melk, men produsert i melke-utstyr",
-    "ik": "ikke kosher",
+    "ik": "ikke kosher / not kosher",
 };
 
 export const KEYS = {

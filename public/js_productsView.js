@@ -47,11 +47,11 @@ function setProductClass(key, contentValueNode) {
 function createProductItemNodes(product, showids = false) {
     const prodList = {
         uid: showids ? product[C.KEYS.UID].toString() : "-",
+        product: product[C.KEYS.PRODUCT],
         category: product[C.KEYS.SUB_CATEGORY] !== "-" ? "-" : product[C.KEYS.CATEGORY],
         cat_sub_cat: product[C.KEYS.SUB_CATEGORY] !== "-" ? product[C.KEYS.CATEGORY] + "/" + product[C.KEYS.SUB_CATEGORY] : "-",
         producer: product[C.KEYS.PRODUCER],
         product_type: product[C.KEYS.PRODUCT_TYPE],
-        product: product[C.KEYS.PRODUCT],
         kosher_type_stamp: C.KOSHER_TYPE_LOOKUP[product[C.KEYS.KOSHER_TYPE]] + (product[C.KEYS.KOSHER_STAMP] !== "-" ? " (" + product[C.KEYS.KOSHER_STAMP] + ")" : ""),
         comment: product[C.KEYS.COMMENT],
     };

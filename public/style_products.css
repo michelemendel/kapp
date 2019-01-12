@@ -19,6 +19,7 @@
 
     .main__products__product {
         border-bottom: 1px solid lightgray;
+        padding: 8px 0 8px 0;
     }
 
     .main__products__product__productItem__contentKey,

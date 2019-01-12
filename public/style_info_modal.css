@@ -32,6 +32,10 @@
         position: relative;
     }
 
+    .info_modal__content__header__logo:first-of-type {
+        margin-right: 5vh;
+    }
+
     .info_modal__content__header__title {
         font-size: 22px;
         font-weight: bold;
