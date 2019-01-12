@@ -40,17 +40,27 @@ function displayCount(products) {
  * Execute search when the user releases a key on the keyboard.
  */
 function searchEventHandler(db, productsRootNode, showids) {
-    const input = document.getElementById("main__searchBar__searchInput");
-    input.addEventListener("keyup", function (e) {
-        e.preventDefault();
-        if (e.keyCode === 13) {
-            products.removeProducts(productsRootNode);
-            products.displayProducts(
-                productsRootNode,
-                displayCount(db.search(input.value)),
-                showids
-            );
+    const search = document.getElementById("main__searchBar__searchInput");
+
+    const displaySearchResult = () => {
+        products.removeProducts(productsRootNode);
+        products.displayProducts(
+            productsRootNode,
+            displayCount(db.search(search.value)),
+            showids
+        );
+    };
+
+    search.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+            // This trigger the focusout event and eventually the search.
+            e.target.blur();
         }
+    });
+
+    document.addEventListener("focusout", function (e) {
+        console.log("focusout", e);
+        displaySearchResult();
     });
 }
 
