@@ -85,7 +85,8 @@
 
     .info_modal__open {
         text-align: center;
-        background-color: #BCDBEA;
+        /* #BCDBEA; */
+        background-color: #0084b9;
         border-radius: 50%;
         width: 30px;
         height: 30px;

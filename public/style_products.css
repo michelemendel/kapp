@@ -11,15 +11,16 @@
     .main__products {
         font-size: 12px;
         height: 89vh;
-        padding: 9px 0 20vh 0;
-        overflow-y: scroll;
+        margin: 0 auto;
+        padding: 0px 0 20vh 0;
         /* Smooth scrolling; has to be scroll, not auto */
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
     }
 
     .main__products__product {
         border-bottom: 1px solid lightgray;
-        padding: 8px 0 8px 0;
+        padding: 1vh 0 1vh 0;
     }
 
     .main__products__product__productItem__contentKey,
@@ -29,7 +30,6 @@
 
     .main__products__product__productItem__contentKey {
         color: gray;
-        /* color: #933; */
     }
 
     .main__products__product__productItem__contentValue {
@@ -76,14 +76,6 @@
 @media (max-width: 767px) {
 
     .main__products {
-        background: white;
-        margin: 0 auto;
-        box-shadow: none;
-        padding: 0 1.2em 0.5em 2em;
-    }
-
-    .main__products {
-        font-size: 12px;
-        padding: 9px 0 25vh 0;
+        padding: 0px 0 25vh 0;
     }
 }

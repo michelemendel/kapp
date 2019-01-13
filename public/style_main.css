@@ -1,5 +1,6 @@
 /* Israeli flag colors: blue: #0038b8 */
 /* Norwegian flag colors: blue: #002868, red: #EF2B2D */
+/* Color of log text: #0084b9 */
 
 @media screen {
 
@@ -10,7 +11,6 @@
         border-radius: 0;
         margin: 0 auto 0;
         max-width: 600px;
-        padding: 0 2em;
     }
 
     .main__header,
@@ -19,36 +19,63 @@
     }
 
     .main__header {
-        border-top: 9px solid #0038b8;
+        border-top: 5px solid #0084b9;
         display: flex;
         justify-content: space-between;
-        padding-top: 1vh;
+        padding: 1vh 1vh 1vh 4vh;
+    }
+
+    .main__header__logo {
+        flex: 1.2;
+        margin: 0px;
+    }
+
+    .main__header__logo__img {
+        width: 100%;
     }
 
     .main__header__title {
-        margin: 0;
+        align-self: flex-end;
+        color: #0084b9;
+        flex: 1;
+        font-size: 0.8em;
+        /* font-weight: bold; */
+        font-variant-caps: all-small-caps;
+        line-height: 24px;
+        padding-right: 3vh;
+        text-align: end;
     }
 
     .main__searchBar {
-        padding-bottom: 1vh;
+        padding: 0vh 1vh 1.5vh 4vh;
     }
 
     .main__searchBar__info {
-        margin-top: 0;
+        margin-top: 0.4vh;
         margin-bottom: 0;
         color: rgba(0, 0, 0, 0.4);
         font-size: 11px;
     }
 
     .main__searchBar__searchInput {
+        border-color: lightgray;
         border-radius: 0;
+        border-style: solid;
+        border-width: 1px;
         font-size: 16px;
         margin-right: 0.3em;
+        padding: 0.3em 0.7em;
         width: 85%;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+
+    .main__searchBar__searchInput:focus {
+        outline: 2px solid orange;
     }
 
     .main__footer {
-        border-bottom: 9px solid #0038b8;
+        border-bottom: 5px solid #0084b9;
         bottom: 0px;
         height: 9px;
         left: 50%;
@@ -66,10 +93,17 @@
         background: white;
         margin: 0 auto;
         box-shadow: none;
-        padding: 0 1.2em 0.5em 2em;
     }
 
     .main__header {
-        padding-top: 1vh;
+        padding: 0.9vh 0.9vh 0.1vh 1.7vh;
+    }
+
+    .main__header__title {
+        padding: 0vh 0vh 0vh 0vh;
+    }
+
+    .main__searchBar {
+        padding: 0.5em 0em 1.5em 1em;
     }
 }
