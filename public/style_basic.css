@@ -16,13 +16,22 @@ h2 {
     margin: 0 0 8px;
 }
 
-a {
+.link--big {
     background: #039be5;
     border-radius: 0;
     color: white;
     display: block;
     padding: 16px;
     text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.link--small {
+    background: white;
+    border-radius: 0;
+    color: #039be5;
+    padding: 1px;
     text-transform: uppercase;
     text-decoration: none;
 }

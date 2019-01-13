@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- PWA A2HS -->
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/Icon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/icons/Icon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/Icon-180.png">
+
+    <!-- favicon -->
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"> -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <title>Norwegian Kosher List</title>
 
     <!-- Firebase App is always required and must be first -->
@@ -65,45 +79,14 @@
             <div class="info_modal__content__body">
                 <h2>About</h2>
                 <p class="info_modal__content__body__p">
-                    Lorem ipsum dolor sit amet, justo ante. Lacinia dignissim, a faucibus. Ante litora tortor. Nisl
-                    mauris leo, luctus ac semper. Sed quam vitae. Tellus pharetra in. Vel lobortis, dapibus arcu,
-                    et
-                    tortor. Nullam metus viverra, maecenas a purus. Pulvinar vitae.
-                </p>
-
-                <p class="info_modal__content__body__p">
-                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
-                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
-                    etiam,
-                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
-                </p>
-
-                <p class="info_modal__content__body__p">
-                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
-                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
-                    etiam,
-                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
-                </p>
-
-                <p class="info_modal__content__body__p">
-                    In morbi, varius libero. Porta natoque, quisque ultrices parturient. Parturient duis accumsan,
-                    curabitur vitae tempus, id adipiscing vel. Quis lectus. Dui elit, commodo rhoncus nec. In
-                    etiam,
-                    aliquam justo in, ultricies et quos. Eu nullam, eros aliquam, eu ipsum dictum.
-                </p>
-
-                <p class="info_modal__content__body__p">
-                    Lorem ipsum dolor sit amet, justo ante. Lacinia dignissim, a faucibus. Ante litora tortor. Nisl
-                    mauris leo, luctus ac semper. Sed quam vitae. Tellus pharetra in. Vel lobortis, dapibus arcu,
-                    et
-                    tortor. Nullam metus viverra, maecenas a purus. Pulvinar vitae.
+                    <a class="link--big" href="https://www.jødedommen.no/wp-content/uploads/2018/11/Kosherlisten-2018.pdf"
+                        target="_blank">Link
+                        to the full kosher list (PDF)</a>
                 </p>
 
                 <h2>Contact</h2>
                 <p class="info_modal__content__body__p">
                     For questions or comments, please contact...
-                    John Doe
-                    johndoe@abc.abc
                 </p>
 
                 <h2>Tips</h2>
@@ -117,8 +100,20 @@
                             where 123 has to change to the id you want to see.</li>
                     </ul>
                 </p>
-            </div>
 
+                <h2>Icon</h2>
+                <p class="info_modal__content__body__p">
+                    Icons made by
+                    <a class="link--small" href="https://www.freepik.com/" title="Freepik">Freepik</a>
+                    from
+                    <a class="link--small" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    is licensed by
+                    <a class="link--small" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                        target="_blank">CC
+                        3.0 BY</a>
+                </p>
+
+            </div>
         </div>
 
     </div>
@@ -127,7 +122,7 @@
         import {data} from "./js_data.js";
         import * as view from "./js_mainView.js";
         import * as database from "./js_database.js";
-        import * as sw from "./js_serviceWorker.js";
+        // import * as sw from "./js_serviceWorker.js";
 
         function getQueryData() {
             let kv;
@@ -139,7 +134,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
-            sw.initServiceWorker()
+            // sw.initServiceWorker()
 
             const query = getQueryData()
 

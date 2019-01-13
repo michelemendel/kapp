@@ -1,3 +1,27 @@
-# dmtkapp
+# Norwegian Kosher List App
 
 python3 -m http.server 8080
+
+
+ICON
+shopping-cart.svg
+shopping-cart.png
+
+<div>
+Icons made by 
+<a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
+from 
+<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+is licensed by
+<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
+
+
+FAVICON GENERATOR
+https://realfavicongenerator.net/
+
+
+APP ICON GENERATOR
+https://appiconmaker.co/
+https://appiconizer.com/
+
