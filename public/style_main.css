@@ -47,9 +47,10 @@
         color: #0084b9;
         flex: 0.6;
         font-size: 0.8em;
-        font-weight: bold;
+        font-weight: 600;
         font-variant-caps: all-small-caps;
-        padding: 0 0 0.7vh 0vh;
+        /* Sets the height of the text relative to the logo */
+        padding: 0 0 1.1vh 0vh;
     }
 
     .main__searchBar {

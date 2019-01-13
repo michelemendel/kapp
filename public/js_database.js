@@ -15,12 +15,8 @@ export function init(data) {
             });
     };
 
-    const search = (str) => {
-        const re = RegExp(str + ".*", "im");
-        return products.filter((p) => {
-            // Without the normalize method, search for the letter å doesn't work.
-            return re.test(p["search"].normalize());
-        });
+    const search = (searchVals) => {
+        return searchMultiplePredicate(searchVals, products);
     };
 
     return {
@@ -28,5 +24,18 @@ export function init(data) {
         getProducts,
         search,
     }
+}
 
+/**
+ * Splits the search string in words and returns true if all words match (logical AND match).
+ */
+function searchMultiplePredicate(searchVals, products) {
+    const res = searchVals.split(" ").map((val) => RegExp(val + ".*", "im"));
+
+    return products.filter((product) => {
+        return res.reduce((acc, re) => {
+            // Without the normalize method, search for the letter å doesn't work.
+            return acc && re.test(product["search"].normalize());
+        }, true);
+    });
 }
