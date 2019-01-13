@@ -6,7 +6,7 @@
         /* Sit on top */
         z-index: 1;
         /* Location of the box */
-        padding: 2em 6em;
+        padding: 2vh 11vw;
         left: 0;
         top: 0;
         width: 100%;
@@ -147,7 +147,7 @@
 @media (max-width: 767px) {
 
     .info_modal {
-        padding: 2em 0.2em;
+        padding: 2vh 0vw;
     }
 
     .info_modal__content__header {

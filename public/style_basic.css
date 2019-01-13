@@ -11,6 +11,10 @@
     --dark-grey: #4c4c4c;
 }
 
+/* Prevent zoom? */
+html {
+    -webkit-text-size-adjust: none
+}
 
 * {
     box-sizing: border-box;
