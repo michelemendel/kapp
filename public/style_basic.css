@@ -1,23 +1,37 @@
+/* Israeli flag colors: blue: #0038b8 */
+/* Norwegian flag colors: blue: #002868, red: #EF2B2D */
+/* Color of log text: #0084b9 */
+
+:root {
+    --blue_israeli_flag: #0038b8;
+    --blue_norwgian_flag: #002868;
+    --blue_vaad_hakashrut: #0084b9;
+    --blue_light: #039be5;
+    --blue_dark: #0083c3;
+    --dark-grey: #4c4c4c;
+}
+
+
 * {
     box-sizing: border-box;
 }
 
 h1 {
-    color: #0038b8;
+    color: var(--blue_light);
     font-size: 16px;
     font-weight: bold;
     margin: 0 0 8px;
 }
 
 h2 {
-    color: #0038b8;
+    color: var(--blue_light);
     font-weight: bold;
     font-size: 14px;
     margin: 0 0 8px;
 }
 
 .link--big {
-    background: #039be5;
+    background: var(--blue_light);
     border-radius: 0;
     color: white;
     display: block;
@@ -30,7 +44,7 @@ h2 {
 .link--small {
     background: white;
     border-radius: 0;
-    color: #039be5;
+    color: var(--blue_light);
     padding: 1px;
     text-transform: uppercase;
     text-decoration: none;

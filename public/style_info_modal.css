@@ -86,7 +86,7 @@
     .info_modal__open {
         text-align: center;
         /* #BCDBEA; */
-        background-color: #0084b9;
+        background-color: var(--blue_vaad_hakashrut);
         border-radius: 50%;
         width: 30px;
         height: 30px;

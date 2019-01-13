@@ -46,11 +46,11 @@
     }
 
     .main__products__product__productItem__contentValue--milk {
-        color: #0038b8;
+        color: var(--blue_dark);
     }
 
     .main__products__product__productItem__contentValue--parve {
-        color: black;
+        color: var(--dark-grey);
     }
 
     .main__products__product__productItem__contentValue--treif {
