@@ -38,7 +38,9 @@
             <div class="main__header__logo">
                 <img class="main__header__logo__img" src="media/logo_vaadhakashrut.jpg" alt="log">
             </div>
-            <div class="main__header__title">Norwegian Kosher List </div>
+            <div class="main__header__title__wrapper">
+                <div class="main__header__title">Norwegian<br />Kosher List</div>
+            </div>
             <span id="info_modal__open" class="info_modal__open"></span>
         </div>
 
@@ -124,7 +126,7 @@
     <script type="module">
         import {data} from "./js_data.js";
         import * as view from "./js_mainView.js";
-        import * as database from "./js_kappDb.js";
+        import * as database from "./js_database.js";
         import * as sw from "./js_serviceWorker.js";
 
         function getQueryData() {

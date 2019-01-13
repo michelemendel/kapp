@@ -24,8 +24,8 @@ function displaySearch(searchBarRootNode) {
     input.setAttribute("placeholder", "To search, write a text and press enter...");
 
     const count = document.createElement("span");
-    count.setAttribute("id", "main__searchBar__product_count");
     count.setAttribute("class", "main__searchBar__info");
+    count.setAttribute("id", "main__searchBar__product_count");
 
     searchBarRootNode.appendChild(input);
     searchBarRootNode.appendChild(count);

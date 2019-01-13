@@ -22,12 +22,13 @@
         border-top: 5px solid #0084b9;
         display: flex;
         justify-content: space-between;
-        padding: 1vh 1vh 1vh 4vh;
+        padding: 1vh 1vh 0 1.5vh;
     }
 
     .main__header__logo {
-        flex: 1.2;
+        flex: 1.4;
         margin: 0px;
+        padding: 0 1.5vh 0 0;
     }
 
     .main__header__logo__img {
@@ -35,19 +36,24 @@
     }
 
     .main__header__title {
+        border-left: 1px solid lightgray;
+        line-height: 12px;
+        padding: 0 0 0 1.5vh;
+    }
+
+    .main__header__title__wrapper {
         align-self: flex-end;
+        /* border-left: 1px solid lightgray; */
         color: #0084b9;
-        flex: 1;
+        flex: 0.6;
         font-size: 0.8em;
-        /* font-weight: bold; */
+        font-weight: bold;
         font-variant-caps: all-small-caps;
-        line-height: 24px;
-        padding-right: 3vh;
-        text-align: end;
+        padding: 0 0 0.7vh 0vh;
     }
 
     .main__searchBar {
-        padding: 0vh 1vh 1.5vh 4vh;
+        padding: 2vh 1vh 2vh 2vh;
     }
 
     .main__searchBar__info {
@@ -93,17 +99,5 @@
         background: white;
         margin: 0 auto;
         box-shadow: none;
-    }
-
-    .main__header {
-        padding: 0.9vh 0.9vh 0.1vh 1.7vh;
-    }
-
-    .main__header__title {
-        padding: 0vh 0vh 0vh 0vh;
-    }
-
-    .main__searchBar {
-        padding: 0.5em 0em 1.5em 1em;
     }
 }

@@ -22,9 +22,16 @@ function createProductNodes(products, showids) {
 function createProductNode(product, showids = false) {
     const productNode = document.createElement("div");
     productNode.classList.add("main__products__product");
+
+    const line = document.createElement("div");
+    line.classList.add("main__products__product__line");
+
     createProductItemNodes(product, showids).forEach((productItemNode) => {
         productNode.appendChild(productItemNode);
     });
+
+    productNode.appendChild(line)
+
     return productNode;
 }
 
