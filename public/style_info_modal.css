@@ -22,7 +22,7 @@
     .info_modal__content__header {
         border-bottom: 1px solid lightgray;
         display: flex;
-        height: 13vh;
+        height: 16vh;
         justify-content: space-between;
         padding: 1vh 1vw 1vh 1.5vw;
 
@@ -33,6 +33,10 @@
         flex: 1;
         margin: 0px;
         padding: 0 1.5vw 0 0;
+    }
+
+    .info_modal__content__header__logo:first-of-type {
+        flex: 1.8;
     }
 
     .info_modal__content__header__logo__img {
@@ -92,7 +96,7 @@
 
 @media (max-width: 767px) {
     .info_modal__content__header {
-        height: 11vh;
+        height: 17vh;
     }
 
     .info_modal__content__header__title {
