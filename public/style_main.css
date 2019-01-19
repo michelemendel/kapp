@@ -21,11 +21,13 @@
     .main__header {
         border-top: 5px solid var(--blue_vaad_hakashrut);
         display: flex;
+        height: 16vh;
         justify-content: space-between;
         padding: 1vh 1vw 0 1.5vw;
     }
 
     .main__header__logo {
+        align-self: flex-end;
         flex: 1.4;
         margin: 0px;
         padding: 0 1.5vw 0 0;
@@ -156,6 +158,9 @@
 }
 
 @media (max-width: 767px) {
+    .main__header {
+        height: 14vh;
+    }
 
     .main__header,
     .main__searchBar {

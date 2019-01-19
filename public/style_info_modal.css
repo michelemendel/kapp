@@ -20,15 +20,16 @@
     }
 
     .info_modal__content__header {
-        border-bottom: 1px solid #888;
+        border-bottom: 1px solid lightgray;
         display: flex;
+        height: 13vh;
         justify-content: space-between;
-        padding: 1vh 1vw 0 1.5vw;
+        padding: 1vh 1vw 1vh 1.5vw;
 
     }
 
     .info_modal__content__header__logo {
-        align-self: baseline;
+        align-self: flex-end;
         flex: 1;
         margin: 0px;
         padding: 0 1.5vw 0 0;
@@ -90,9 +91,8 @@
 
 
 @media (max-width: 767px) {
-
     .info_modal__content__header {
-        border-bottom: 1px solid #888;
+        height: 11vh;
     }
 
     .info_modal__content__header__title {
