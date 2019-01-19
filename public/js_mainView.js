@@ -65,7 +65,7 @@ function searchEventHandler(db, productsRootNode, showids) {
 }
 
 function infoModalEventHandler() {
-    const infoModalButton = document.getElementById("info_modal__open");
+    const infoModalButton = document.getElementById("main__header__info_modal__open");
     var modal = document.getElementById("info_modal");
     var body = document.getElementsByTagName("body")[0];
     // Get the <span> element that closes the modal

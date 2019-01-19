@@ -55,10 +55,11 @@ function createProductItemNodes(product, showids = false) {
     const prodList = {
         uid: showids ? product[C.KEYS.UID].toString() : "-",
         product: product[C.KEYS.PRODUCT],
-        category: product[C.KEYS.SUB_CATEGORY] !== "-" ? "-" : product[C.KEYS.CATEGORY],
-        cat_sub_cat: product[C.KEYS.SUB_CATEGORY] !== "-" ? product[C.KEYS.CATEGORY] + "/" + product[C.KEYS.SUB_CATEGORY] : "-",
+        category: [product[C.KEYS.CATEGORY], product[C.KEYS.SUB_CATEGORY], product[C.KEYS.PRODUCT_TYPE]]
+            .filter((v) => v !== "-")
+            .join("/"),
+
         producer: product[C.KEYS.PRODUCER],
-        product_type: product[C.KEYS.PRODUCT_TYPE],
         kosher_type_stamp: C.KOSHER_TYPE_LOOKUP[product[C.KEYS.KOSHER_TYPE]] + (product[C.KEYS.KOSHER_STAMP] !== "-" ? " (" + product[C.KEYS.KOSHER_STAMP] + ")" : ""),
         comment: product[C.KEYS.COMMENT],
     };
@@ -68,7 +69,7 @@ function createProductItemNodes(product, showids = false) {
         .map((key) => {
             const contentKeyNode = document.createElement("div");
             contentKeyNode.classList.add("main__products__product__productItem__contentKey");
-            contentKeyNode.appendChild(createContentNode(C.DISPLAY_COLS[key]))
+            contentKeyNode.appendChild(createContentNode(C.DISPLAY_COLS_NO[key]))
 
             const contentValueNode = document.createElement("div");
             contentValueNode.classList.add("main__products__product__productItem__contentValue");

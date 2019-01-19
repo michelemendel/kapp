@@ -1,39 +1,41 @@
 @media screen {
     .info_modal {
+        background-color: white;
         display: none;
-        /* Stay in place */
-        position: fixed;
-        /* Sit on top */
-        z-index: 1;
-        /* Location of the box */
-        padding: 2vh 11vw;
+        /* 10px - size of sum of line at top and bottom */
+        height: calc(100vh - 10px);
         left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        /* 5px - size of line at top */
+        top: 5px;
     }
 
     .info_modal__content {
-        width: 100%;
-        height: 90%;
+        padding: 0 0vw 0 0vw;
     }
 
     .info_modal__content__header,
     .info_modal__content__body {
         background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        width: 80%;
     }
 
     .info_modal__content__header {
         border-bottom: 1px solid #888;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding: 1vh 1vw 0 1.5vw;
+
     }
 
-    .info_modal__content__header__logo:first-of-type {
-        margin-right: 5vh;
+    .info_modal__content__header__logo {
+        align-self: baseline;
+        flex: 1;
+        margin: 0px;
+        padding: 0 1.5vw 0 0;
+    }
+
+    .info_modal__content__header__logo__img {
+        width: 100%;
     }
 
     .info_modal__content__header__title {
@@ -44,6 +46,7 @@
     .info_modal__content__body {
         height: 100%;
         overflow-y: scroll;
+        padding: 2vh 2vw 2vh 2vw;
         /* Smooth scrolling; has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
     }
@@ -66,7 +69,7 @@
         color: #aaaaaa;
         font-size: 50px;
         line-height: 25px;
-        position: absolute;
+        /* position: absolute; */
         right: 4px;
         top: 0px;
     }
@@ -83,80 +86,13 @@
         cursor: pointer;
     }
 
-    .info_modal__open {
-        text-align: center;
-        /* #BCDBEA; */
-        background-color: var(--blue_vaad_hakashrut);
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        font-size: 24px;
-        line-height: 29px;
-        cursor: default;
-        padding: 0 0 0 1px;
-    }
-
-    .info_modal__open:before {
-        content: "?";
-        font-weight: bold;
-        color: #fff;
-    }
-
-    .info_modal__open:hover p {
-        display: block;
-        transform-origin: 100% 0%;
-    }
-
-    .info_modal__open p {
-        display: none;
-        text-align: left;
-        background-color: #1E2021;
-        padding: 20px;
-        width: 300px;
-        border-radius: 3px;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-        right: -4px;
-        color: #FFF;
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    .info_modal__open p:before {
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 0;
-        border: 6px solid transparent;
-        border-bottom-color: #1E2021;
-        right: 10px;
-        top: -12px;
-    }
-
-    .info_modal__open p:after {
-        /* Prevents the tooltip from being hidden */
-        width: 100%;
-        height: 40px;
-        content: '';
-        position: absolute;
-        top: -40px;
-        left: 0;
-    }
 }
 
 
 @media (max-width: 767px) {
 
-    .info_modal {
-        padding: 2vh 0vw;
-    }
-
     .info_modal__content__header {
         border-bottom: 1px solid #888;
-    }
-
-    .info_modal__content__header,
-    .info_modal__content__body {
-        width: 95%;
     }
 
     .info_modal__content__header__title {

@@ -16,13 +16,10 @@ export const KEYS = {
     KOSHER_TYPE: "kosher_type",
     KOSHER_STAMP: "kosher_stamp",
     COMMENT: "comment",
-    // 
-    CAT_SUB_CAT: "Category/Subcat",
-    KOSHER_TYPE_STAMP: "Kosher",
 };
 
-export const DISPLAY_COLS = {
-    uid: "uid",
+export const DISPLAY_COLS_EN = {
+    uid: "id",
     category: "Category",
     sub_category: "Sub Category",
     producer: "Producer",
@@ -32,7 +29,22 @@ export const DISPLAY_COLS = {
     kosher_stamp: "Kosher Stamp",
     comment: "Comment",
     // 
-    cat_sub_cat: "Category",
+    kosher_type_stamp: "Kosher",
+};
+
+export const DISPLAY_COLS_NO = {
+    uid: "id",
+    category: "Kategori",
+    sub_category: "SubKategori",
+    producer: "Produsent",
+    product_type: "Produkttype",
+    product: "Produkt",
+    kosher_type: "Koshertype",
+    kosher_stamp: "Kosherstempel",
+    comment: "Kommentar",
+    // 
+    cat_sub_cat: "Kategori",
+    cat_sub_cat_prod_type: "Kategori",
     kosher_type_stamp: "Kosher",
 };
 
