@@ -10,45 +10,75 @@
         top: 5px;
     }
 
-    .info_modal__content {
-        padding: 0 0vw 0 0vw;
-    }
-
-    .info_modal__content__header,
-    .info_modal__content__body {
+    .info_modal__header,
+    .info_modal__body {
         background-color: #fefefe;
     }
 
-    .info_modal__content__header {
+    .info_modal__header {
         border-bottom: 1px solid lightgray;
         display: flex;
-        height: 16vh;
-        justify-content: space-between;
         padding: 1vh 1vw 1vh 1.5vw;
 
     }
 
-    .info_modal__content__header__logo {
+    .info_modal__header__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info_modal__header__content__nav {
+        font-size: 0.75em;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+
+    .info_modal__header__content__logos {
+        display: flex;
+    }
+
+    .info_modal__header__logo {
         align-self: flex-end;
         flex: 1;
         margin: 0px;
         padding: 0 1.5vw 0 0;
     }
 
-    .info_modal__content__header__logo:first-of-type {
-        flex: 1.8;
+    .info_modal__header__logo:first-of-type {
+        flex: 1.2;
     }
 
-    .info_modal__content__header__logo__img {
+    .info_modal__header__logo__img {
+        height: 50%;
         width: 100%;
     }
 
-    .info_modal__content__header__title {
+    .info_modal__header__title {
         font-size: 22px;
         font-weight: bold;
     }
 
-    .info_modal__content__body {
+    .info_modal__header__close {
+        color: #aaaaaa;
+        font-size: 50px;
+        line-height: 25px;
+        right: 4px;
+        top: 0px;
+    }
+
+    .info_modal__header__close:after {
+        /* content: '✖'; */
+        content: '×';
+    }
+
+    .info_modal__header__close:hover,
+    .info_modal__header__close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .info_modal__body {
         height: 100%;
         overflow-y: scroll;
         padding: 2vh 2vw 2vh 2vw;
@@ -56,50 +86,24 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    .info_modal__content__body__p,
-    .info_modal__content__body__ul {
+    .info_modal__body__p,
+    .info_modal__body__ul {
         font-size: 12px;
     }
 
-    .info_modal__content__body__p {
+    .info_modal__body__p {
         line-height: 140%;
         margin: 4px 0 16px 0;
     }
 
-    .info_modal__content__body__li {
+    .info_modal__body__li {
         margin: 4px 0 16px 0;
     }
-
-    .info_modal__close {
-        color: #aaaaaa;
-        font-size: 50px;
-        line-height: 25px;
-        /* position: absolute; */
-        right: 4px;
-        top: 0px;
-    }
-
-    .info_modal__close:after {
-        /* content: '✖'; */
-        content: '×';
-    }
-
-    .info_modal__close:hover,
-    .info_modal__close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
 }
 
 
 @media (max-width: 767px) {
-    .info_modal__content__header {
-        height: 17vh;
-    }
-
-    .info_modal__content__header__title {
+    .info_modal__header__title {
         font-size: 20px;
     }
 }

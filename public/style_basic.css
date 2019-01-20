@@ -11,13 +11,35 @@
     --dark-grey: #4c4c4c;
 }
 
+
+/* Resets */
+
+/* Reset Safari User Agent Styles */
+
+* {
+    -webkit-padding-start: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: border-box;
+}
+
+
 /* Prevent zoom? */
 html {
     -webkit-text-size-adjust: none
-}
-
-* {
-    box-sizing: border-box;
 }
 
 h1 {

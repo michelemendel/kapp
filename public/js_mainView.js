@@ -1,4 +1,5 @@
 import * as products from "./js_productsView.js";
+import * as infoView from "./js_infoView.js";
 
 export function init(db, uid = 0, showids = false) {
     const productsRootNode = document.getElementById("products");
@@ -65,25 +66,26 @@ function searchEventHandler(db, productsRootNode, showids) {
 }
 
 function infoModalEventHandler() {
-    const infoModalButton = document.getElementById("main__header__info_modal__open");
+    const infoModalOpenButton = document.getElementById("main__header__info_modal__open");
     var modal = document.getElementById("info_modal");
     var body = document.getElementsByTagName("body")[0];
     // Get the <span> element that closes the modal
-    var infoModalClose = document.getElementsByClassName("info_modal__close")[0];
+    var infoModalCloseButton = document.getElementsByClassName("info_modal__header__close")[0];
 
-    infoModalButton.onclick = () => {
+    infoModalOpenButton.onclick = () => {
         modal.style.display = "block";
         body.setAttribute("style", "overflow:hidden");
+        infoView.init();
     }
 
     // When the user clicks on <span> (x), close the modal
-    infoModalClose.onclick = function () {
+    infoModalCloseButton.onclick = () => {
         modal.style.display = "none";
         body.setAttribute("style", "overflow:auto");
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
+    window.onclick = (event) => {
         if (event.target == modal) {
             modal.style.display = "none";
         }
