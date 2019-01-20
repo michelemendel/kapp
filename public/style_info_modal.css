@@ -29,8 +29,14 @@
 
     .info_modal__header__content__nav {
         font-size: 0.75em;
+        color: darkslategray;
         cursor: pointer;
         text-transform: uppercase;
+    }
+
+    #info_modal__header__content__nav__hebrew {
+        font-size: 1.1em;
+        color: #446161;
     }
 
     .info_modal__header__content__logos {

@@ -21,8 +21,6 @@
     .main__header {
         border-top: 5px solid var(--blue_vaad_hakashrut);
         display: flex;
-        height: 16vh;
-        /* justify-content: space-between; */
         padding: 1vh 1vw 0 1.5vw;
     }
 
@@ -58,7 +56,6 @@
 
     .main__header__info_modal__open {
         text-align: center;
-        /* #BCDBEA; */
         background-color: var(--blue_vaad_hakashrut);
         border-radius: 50%;
         width: 30px;
@@ -118,7 +115,7 @@
 
 
     .main__searchBar {
-        padding: 2vh 1vw 2vh 2vw;
+        padding: 2vh 1vw 2vh 3vw;
     }
 
     .main__searchBar__info {
@@ -158,8 +155,8 @@
 }
 
 @media (max-width: 767px) {
-    .main__header {
-        height: 17vh;
+    .main__searchBar {
+        padding-left: 4vw;
     }
 
     .main__header,
