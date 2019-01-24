@@ -1,17 +1,24 @@
 const contentBodyNode = document.querySelector(".info_modal__body");
 const mainButton = document.getElementById("info_modal__header__content__nav__main");
+const englishButton = document.getElementById("info_modal__header__content__nav__english");
 const hebrewButton = document.getElementById("info_modal__header__content__nav__hebrew");
 const pesachButton = document.getElementById("info_modal__header__content__nav__pesach");
+const aboutButton = document.getElementById("info_modal__header__content__nav__about");
 
 const contentMain = "contentMain";
+const contentEnglish = "contentEnglish";
 const contentHebrew = "contentHebrew";
 const contentPesach = "contentPesach";
+const contentAbout = "contentAbout";
 
 export function init() {
     loadBody(contentMain);
 
     mainButton.onclick = () => {
         loadBody(contentMain);
+    }
+    englishButton.onclick = () => {
+        loadBody(contentEnglish);
     }
     hebrewButton.onclick = () => {
         loadBody(contentHebrew);
@@ -20,6 +27,9 @@ export function init() {
     }
     pesachButton.onclick = () => {
         loadBody(contentPesach);
+    }
+    aboutButton.onclick = () => {
+        loadBody(contentAbout);
     }
 }
 

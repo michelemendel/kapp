@@ -86,24 +86,30 @@
 
     .info_modal__body {
         height: 100%;
-        overflow-y: scroll;
-        padding: 2vh 2vw 2vh 2vw;
+        padding: 2vh 6vw 25vh 6vw;
+
         /* Smooth scrolling; has to be scroll, not auto */
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+    }
+
+    .info_modal__body__p {
+        line-height: 1.7em;
+        margin: 0 0 1em 0;
     }
 
     .info_modal__body__p,
     .info_modal__body__ul {
-        font-size: 12px;
+        font-size: 14px;
     }
 
-    .info_modal__body__p {
-        line-height: 140%;
-        margin: 4px 0 16px 0;
+    .info_modal__body__ul {
+        text-indent: 0.5em;
     }
 
     .info_modal__body__li {
-        margin: 4px 0 16px 0;
+        line-height: 1.65em;
+        list-style-position: inside;
     }
 }
 
