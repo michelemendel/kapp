@@ -74,14 +74,14 @@ function infoModalEventHandler() {
 
     infoModalOpenButton.onclick = () => {
         modal.style.display = "block";
-        body.setAttribute("style", "overflow:hidden");
+        // body.setAttribute("style", "overflow:hidden");
         infoView.init();
     }
 
     // When the user clicks on <span> (x), close the modal
     infoModalCloseButton.onclick = () => {
         modal.style.display = "none";
-        body.setAttribute("style", "overflow:auto");
+        // body.setAttribute("style", "overflow:auto");
     }
 
     // When the user clicks anywhere outside of the modal, close it

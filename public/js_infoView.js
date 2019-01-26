@@ -11,83 +11,53 @@ const contentHebrew = "contentHebrew";
 const contentPesach = "contentPesach";
 const contentAbout = "contentAbout";
 
+const rtl = "rtl";
+const ltr = "ltr";
+
 export function init() {
-    loadBody(contentMain);
+    loadBody(contentMain, contentBodyNode, ltr);
 
     mainButton.onclick = () => {
-        loadBody(contentMain);
+        loadBody(contentMain, contentBodyNode, ltr);
     }
     englishButton.onclick = () => {
-        loadBody(contentEnglish);
+        loadBody(contentEnglish, contentBodyNode, ltr);
     }
     hebrewButton.onclick = () => {
-        loadBody(contentHebrew);
-        contentBodyNode.setAttribute("style", "direction: rtl");
-
+        loadBody(contentHebrew, contentBodyNode, rtl);
     }
     pesachButton.onclick = () => {
-        loadBody(contentPesach);
+        loadBody(contentPesach, contentBodyNode, ltr);
     }
     aboutButton.onclick = () => {
-        loadBody(contentAbout);
+        loadBody(contentAbout, contentBodyNode, ltr);
     }
 }
 
-function loadBody(page) {
-    const xhr = new XMLHttpRequest();
-
-    xhr.onload = (e) => {
-        const body = e.target.response.body;
-        contentBodyNode.innerHTML = "";
-        contentBodyNode.appendChild(body.firstChild);
-    }
-
-    const path = "/info/" + page + ".html";
-    xhr.open("GET", path);
-    xhr.responseType = "document";
-    xhr.send();
-
-    contentBodyNode.setAttribute("style", "direction: ltr");
+function loadBody(page, contentBodyNode, direction) {
+    getBodyHtml(page)
+        .then((bodyHtml) => {
+            contentBodyNode.innerHTML = bodyHtml;
+            document.getElementById("toppen").scrollIntoView(false);
+            contentBodyNode.setAttribute("style", `direction: ${direction}`);
+        });
 }
 
+/**
+ * Using a promise seems to help with the problem of the first page not scrolling,
+ * and to make each page scroll to the top when entered.
+ */
+function getBodyHtml(page) {
+    return new Promise((resolve) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = (e) => {
+            contentBodyNode.innerHTML = "...";
+            resolve(e.target.response.body.innerHTML);
+        }
 
-function setInfo() {
-    contentBodyNode.innerHTML = `
-<h2>About</h2>
-<p class="info_modal__body__p">
-    <a class="link--big" href="https://www.jødedommen.no/wp-content/uploads/2018/11/Kosherlisten-2018.pdf"
-        target="_blank">Link to the kosher list PDF file</a>
-</p>
-
-<h2>Contact</h2>
-<p class="info_modal__body__p">
-    For questions or comments, please contact...
-</p>
-
-<h2>Tips</h2>
-<p class="info_modal__body__p">
-    <ul class="info_modal__body__ul">
-        <li class="info_modal__body__li">To see all the products id, add ?showids=1 to the
-            end
-            of
-            the URL</li>
-        <li class="info_modal__body__li">To see a specific product - that you can share -
-            add
-            ?id=123,
-            where 123 has to change to the id you want to see.</li>
-    </ul>
-</p>
-
-<h2>Icon</h2>
-<p class="info_modal__body__p">
-    Icons made by
-    <a class="link--small" href="https://www.freepik.com/" title="Freepik">Freepik</a>
-    from
-    <a class="link--small" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-    is licensed by
-    <a class="link--small" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
-        target="_blank">CC
-        3.0 BY</a>
-</p>
-`
-}
+        const path = "/info/" + page + ".html";
+        xhr.open("GET", path);
+        xhr.responseType = "document";
+        xhr.send();
+    })
+};
