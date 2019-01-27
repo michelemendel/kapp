@@ -2,10 +2,6 @@
     .info_modal {
         background-color: white;
         display: none;
-        /* left: 0; */
-        /* position: absolute; */
-        /* 5px - size of line at top */
-        /* top: 5px; */
     }
 
     .info_modal__header,
@@ -112,6 +108,13 @@
     }
 }
 
+@media only screen and (min-device-width : 812px) {
+    .info_modal {
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+}
 
 /* 
  * https://css-tricks.com/snippets/css/media-queries-for-standard-devices/

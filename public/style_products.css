@@ -11,8 +11,6 @@
         /* Smooth scrolling; has to be scroll, not auto */
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        /* Makes the scrollbar somehow fit in some browsers. */
-        /* overscroll-behavior-y: none; */
     }
 
     .main__products__product__line {
