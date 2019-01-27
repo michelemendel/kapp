@@ -5,17 +5,14 @@
         border-radius: 0;
         border-top: 1px solid lightgray;
         font-size: 14px;
-        height: 89vh;
-        /* padding: 2vh 6vw 25vh 0.8vw; */
-        padding: 2vh 0 25vh 0;
+        height: 75vh;
+        padding: 2vh 0 29vh 0;
 
         /* Smooth scrolling; has to be scroll, not auto */
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-    }
-
-    .main__products__product {
-        /* width: 80vw; */
+        /* Makes the scrollbar somehow fit in some browsers. */
+        /* overscroll-behavior-y: none; */
     }
 
     .main__products__product__line {
@@ -74,7 +71,11 @@
     }
 }
 
-@media (max-width: 767px) {
+
+/* 
+ * https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+ */
+@media only screen and (max-device-width : 812px) {
     .main__products {
         padding-bottom: 30vh;
 

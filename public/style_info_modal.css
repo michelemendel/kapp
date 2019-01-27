@@ -2,12 +2,10 @@
     .info_modal {
         background-color: white;
         display: none;
-        /* 10px - size of sum of line at top and bottom */
-        height: calc(100vh - 10px);
-        left: 0;
-        position: absolute;
+        /* left: 0; */
+        /* position: absolute; */
         /* 5px - size of line at top */
-        top: 5px;
+        /* top: 5px; */
     }
 
     .info_modal__header,
@@ -85,12 +83,13 @@
     }
 
     .info_modal__body {
-        height: 100%;
-        padding: 2vh 6vw 25vh 6vw;
+        height: 99vh;
+        padding: 2vh 6vw 29vh 6vw;
 
         /* Smooth scrolling; has to be scroll, not auto */
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+        /* overscroll-behavior-y: none; */
     }
 
     .info_modal__body__p {
@@ -114,7 +113,10 @@
 }
 
 
-@media (max-width: 767px) {
+/* 
+ * https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+ */
+@media only screen and (max-device-width : 812px) {
     .info_modal__header__title {
         font-size: 20px;
     }

@@ -4,22 +4,17 @@
         position: relative;
         margin: 0 auto 0;
         max-width: 600px;
-    }
-
-    .main__header,
-    .main__searchBar,
-    .main__footer {
-        background: white;
-        border-radius: 0;
+        overflow: hidden;
     }
 
     .main__header,
     .main__searchBar {
-        overflow: hidden;
+        background: white;
+        border-radius: 0;
     }
 
     .main__header {
-        border-top: 5px solid var(--blue_vaad_hakashrut);
+        /* border-top: 5px solid var(--blue_vaad_hakashrut); */
         display: flex;
         padding: 1vh 1vw 0 1.5vw;
     }
@@ -78,38 +73,38 @@
     }
 
     .main__header__info_modal__open p {
-        display: none;
-        text-align: left;
         background-color: #1E2021;
-        padding: 20px;
-        width: 300px;
         border-radius: 3px;
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-        right: -4px;
         color: #FFF;
+        display: none;
         font-size: 13px;
         line-height: 1.4;
+        padding: 20px;
+        right: -4px;
+        text-align: left;
+        width: 300px;
     }
 
     .main__header__info_modal__open p:before {
-        position: absolute;
         content: '';
-        width: 0;
         height: 0;
         border: 6px solid transparent;
         border-bottom-color: #1E2021;
+        position: absolute;
         right: 10px;
         top: -12px;
+        width: 0;
     }
 
     .main__header__info_modal__open p:after {
         /* Prevents the tooltip from being hidden */
-        width: 100%;
         height: 40px;
         content: '';
+        left: 0;
         position: absolute;
         top: -40px;
-        left: 0;
+        width: 100%;
     }
 
 
@@ -119,10 +114,10 @@
     }
 
     .main__searchBar__info {
-        margin-top: 0.4vh;
-        margin-bottom: 0;
         color: rgba(0, 0, 0, 0.4);
         font-size: 11px;
+        margin-top: 0.4vh;
+        margin-bottom: 0;
     }
 
     .main__searchBar__searchInput {
@@ -141,20 +136,12 @@
     .main__searchBar__searchInput:focus {
         outline: 2px solid orange;
     }
-
-    .main__footer {
-        border-bottom: 5px solid var(--blue_vaad_hakashrut);
-        bottom: 0px;
-        height: 9px;
-        left: 50%;
-        margin: 0 -300px;
-        width: 600px;
-        padding-bottom: 8px;
-        position: fixed;
-    }
 }
 
-@media (max-width: 767px) {
+/* 
+ * https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+ */
+@media only screen and (max-device-width : 812px) {
     .main__searchBar {
         padding-left: 4vw;
     }

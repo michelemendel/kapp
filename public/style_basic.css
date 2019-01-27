@@ -17,40 +17,42 @@
 /* Reset Safari User Agent Styles */
 
 * {
-    -webkit-padding-start: 0px;
     padding: 0;
+    -webkit-padding-start: 0px;
     margin: 0;
-}
-
-html {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
+    box-sizing: border-box;
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
-    box-sizing: border-box;
 }
 
 
 /* Prevent zoom? */
 html {
-    -webkit-text-size-adjust: none
+    box-sizing: border-box;
+    /* Not sure this done anything. Tried it to prevent header to bounce. */
+    /* overscroll-behavior-y: none; */
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-text-size-adjust: none;
 }
 
 body {
+    /* background: #ECEFF1; */
     color: rgba(0, 0, 0, 0.87);
-    background: #ECEFF1;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 16px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    /* Not sure this done anything. Tried it to prevent header to bounce. */
+    /* overscroll-behavior-y: none; */
 }
+
+/* Prevent bouncing of fixed elements */
+
 
 h1 {
     color: var(--blue_light);
@@ -90,4 +92,47 @@ h3 {
     padding: 1px;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+/* 
+ * Nailing parts in place to prevent them from bouncing and 
+ * preventing the problem with scroll-chaingin on a mobile device. 
+*/
+
+/* 
+ * https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+ */
+@media only screen and (max-device-width : 812px) {
+
+    .main__fixed,
+    .info_modal__fixed {
+        top: 0px;
+        left: 50vw;
+        margin: 0 -50vw;
+        width: 100vw;
+        padding-bottom: 0px;
+        position: fixed;
+    }
+
+    .main__fixed {
+        z-index: 1;
+    }
+
+    .info_modal__fixed {
+        z-index: 2;
+    }
+
+    .main__footer {
+        background: white;
+        border-bottom: 5px solid var(--blue_vaad_hakashrut);
+        border-radius: 0;
+        bottom: 0px;
+        height: 0px;
+        left: 50%;
+        margin: 0 -300px;
+        width: 600px;
+        padding-bottom: 0px;
+        position: fixed;
+        z-index: 99;
+    }
 }

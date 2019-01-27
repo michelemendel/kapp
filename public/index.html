@@ -49,31 +49,30 @@
 
 <body>
     <div class="main">
-        <div class="main__header">
-            <div class="main__header__logo">
-                <img class="main__header__logo__img" src="media/logo_vaadhakashrut.jpg" alt="log" />
+        <div class="main__fixed">
+            <div class="main__header">
+                <div class="main__header__logo">
+                    <img class="main__header__logo__img" src="media/logo_vaadhakashrut.jpg" alt="log" />
+                </div>
+                <div class="main__header__title__wrapper">
+                    <div class="main__header__title">Norwegian<br />Kosher List</div>
+                </div>
+                <span id="main__header__info_modal__open" class="main__header__info_modal__open"></span>
             </div>
-            <div class="main__header__title__wrapper">
-                <div class="main__header__title">Norwegian<br />Kosher List</div>
-            </div>
-            <span id="main__header__info_modal__open" class="main__header__info_modal__open"></span>
+
+            <div id="searchBar" class="main__searchBar"></div>
+
+            <div id="products" class="main__products"></div>
         </div>
 
-        <div id="searchBar" class="main__searchBar"></div>
-
-        <div id="products" class="main__products"></div>
-
-        <div class="main__footer">
-        </div>
-
-        <div id="info_modal" class="info_modal">
+        <div id="info_modal" class="info_modal info_modal__fixed">
             <div class="info_modal__header">
                 <div class="info_modal__header__content">
                     <nav class="info_modal__header__content__nav">
                         <span id="info_modal__header__content__nav__main">norsk</span> |
                         <span id="info_modal__header__content__nav__english">english</span> |
                         <span id="info_modal__header__content__nav__hebrew">עברית</span> |
-                        <span id="info_modal__header__content__nav__pesach">pesach</span> | 
+                        <span id="info_modal__header__content__nav__pesach">pesach</span> |
                         <span id="info_modal__header__content__nav__about">about</span>
                     </nav>
                     <div class="info_modal__header__content__logos">
@@ -91,6 +90,7 @@
             <div class="info_modal__body"></div>
         </div>
 
+        <!-- <div class="main__footer"></div> -->
     </div>
 
     <script type="module">
@@ -115,7 +115,7 @@
             const query = getQueryData()
 
             console.log(data["metadata"]);
-            console.log("query", query);
+            {{/* console.log("query", query); */}}
 
             const db = database.init(data);
             db.initLocalDb()
