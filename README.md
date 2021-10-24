@@ -1,9 +1,20 @@
 # Norwegian Kosher List App
 
+## Local web app
 python3 -m http.server 8080
 
 
-ICON
+## Firebase
+### CLI
+https://firebase.google.com/docs/cli#install-cli-mac-linux
+
+### local firebse server
+firebase serve --port=8888
+
+### deploy
+firebase deploy --only hosting
+
+## Icons
 shopping-cart.svg
 shopping-cart.png
 
